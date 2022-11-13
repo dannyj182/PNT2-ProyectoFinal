@@ -1,16 +1,14 @@
 <template>
 
   <section class="src-components-footer">
-
         <footer class="text-white text-center text-lg-start" style="background-color: #23242a;">
         <!-- Grid container -->
         <div class="container p-4">
         <!--Grid row-->
         <div class="row mt-4">
             <!--Grid column-->
-            <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
+            <div class="col-lg-6 col-md-6 mb-4 mb-md-0">
             <h5 class="text-uppercase mb-4">🎬 Cine ORT</h5>
-
             <div class="mt-4">
                 <!-- Facebook -->
                 <a type="button" class="btn btn-link btn-floating btn-lg text-light m-1"><i class="bi bi-facebook"></i></a>
@@ -24,35 +22,20 @@
             </div>
             </div>
             <!--Grid column-->
-
             <!--Grid column-->
-            <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+            <div class="col-lg-6 col-md-6 mb-4 mb-md-0">
             <h5 class="text-uppercase mb-4 pb-1">Info</h5>
-
             <ul class="fa-ul list-unstyled" style="margin-left: 1.65em;">
                 <li class="mb-3">
                 <span class="fa-li"><i class="fas fa-home"></i></span><span class="ms-2">Almagro, Yatay 650, Arg</span>
                 </li>
-                <li class="mb-3">
-                <span class="fa-li"><i class="fas fa-envelope"></i></span><span class="ms-2">cineort@gmail.com</span>
-                </li>
+              
             </ul>
             </div>
             <!--Grid column-->
 
             <!--Grid column-->
-            <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
-            <h5 class="text-uppercase mb-4">Horario</h5>
-
-            <table class="table text-center text-white">
-                <tbody class="font-weight-normal">
-                <tr>
-                    <td>Lunes - Domingo:</td>
-                    <td>18 pm</td>
-                </tr>
-                </tbody>
-            </table>
-            </div>
+            
             <!--Grid column-->
         </div>
         <!--Grid row-->
