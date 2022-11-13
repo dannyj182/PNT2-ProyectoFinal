@@ -1,8 +1,12 @@
+import 
+
 <template>
 
   <section class="src-componentes-peliculas">
     <div class="jumbotron">
       <h2>Peliculas</h2>
+      <Carrusel/>
+      <FormularioPeli/>
       <hr>
       <hr>
       <br>
@@ -12,8 +16,16 @@
 </template>
 <script>
 
+import FormularioPeli from './FormularioPeli.vue'
+import Carrusel from './Carrusel.vue'
+
+
   export default  {
     name: 'src-componentes-peliculas',
+    components: {
+    FormularioPeli,
+    Carrusel
+    },
     props: [],
 
     data () {
