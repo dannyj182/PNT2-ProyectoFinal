@@ -1,6 +1,6 @@
 <template >
   <section class="src-componentes-navbar">
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark d-flex flex-row-reverse  ">
       
        <router-link to="/">
         <a class="navbar-brand" href="#"> 🎬 Ciner ORT</a>
@@ -14,24 +14,24 @@
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
-        <span class="navbar-toggler-icon"></span>
+      <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse " id="navbarNav">
-        <ul class="navbar-nav d-flex ">
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav text-center">
           <li class="nav-item active">
             <router-link to="/peliculas">
-              <a class="nav-link" href="#"
+              <a class="nav-link text-light" href="#"
                 >Peliculas </a
               >
             </router-link>
           </li>
           <li class="nav-item">
              <router-link to="/formulario" v-if="!($store.state.estaLogueado)">
-              <a class="nav-link" href="#">Login</a>
+              <a class="nav-link text-light" href="#">Login</a>
              </router-link>
 
               <router-link to="/peliculas" v-else >
-              <a class="nav-link" href="#">LogOut</a>
+              <a class="nav-link text-light" href="#">LogOut</a>
              </router-link>
 
           </li>
