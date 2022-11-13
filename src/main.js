@@ -18,6 +18,8 @@ import {router} from "./router"
 //Instalación: npm i vuex@3
 import store from './store'
 
+import './axios'
+
 
 new Vue({
   store,
