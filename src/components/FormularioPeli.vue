@@ -48,7 +48,6 @@
             required
             :minlength="nombreMinLength"
             nombre-max-length
-            no-espacios
           />
   
           <field-messages name="genero" show="$dirty">
@@ -60,9 +59,6 @@
             </div>
             <div slot="nombre-max-length" class="alert alert-danger mt-1">
               Este campo debe poseer máximo {{ nombreMaxLength }} caracteres.
-            </div>
-            <div slot="no-espacios" class="alert alert-danger mt-1">
-              Este campo no permite espacios intermedios
             </div>
           </field-messages>
         </validate>
