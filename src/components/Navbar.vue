@@ -40,6 +40,12 @@
               <a class="nav-link" href="#"><i class="bi bi-person-circle"></i></a>
             </router-link>
           </li>
+
+          <li class="nav-item">
+            <router-link to="/ticket" >
+              <a class="nav-link" href="#"><i class="bi bi-person-circle"></i>Tickets</a>
+            </router-link>
+          </li>
           
         </ul>
         </div>
