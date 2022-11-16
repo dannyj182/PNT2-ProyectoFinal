@@ -2,7 +2,7 @@ import
 
 <template>
 
-  <section class="src-componentes-peliculas">
+  <section>
     <div class="jumbotron">
       <h2>Peliculas</h2>
       <Carrusel/>
@@ -41,17 +41,11 @@ import Carrusel from './Carrusel.vue'
 </script>
 
 <style scoped lang="css">
-  .src-componentes-peliculas {
-
-  }
-
   .jumbotron {
     background-color: teal;
     color: white;
   }
-
   hr {
     background-color: #bbb;
   }
-
 </style>
