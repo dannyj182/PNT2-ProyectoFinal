@@ -1,43 +1,47 @@
 <template>
   <div>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img class="d-inline p-2 w-10" 
-      src="https://static.cinemarkhoyts.com.ar/Images/Posters/c8bbddeba75e479d2400ef0e42a0a0bb.jpg?v=00000837" 
-      alt="First slide">
+        <ol class="carousel-indicators">
+            <div v-for="item in imgPelis" :key="item.id">
+                <li data-target="#carouselExampleIndicators" :data-slide-to="item.id" :class=" item.id === 0? 'active' : '' "></li>
+            </div>
+        </ol>
+        <div class="carousel-inner">
+          <div v-for="(item, index) in imgPelis" :key="index" :class="index === 0 ? 'carousel-item active' : 'carousel-item'">
+            <img class="d-block w-100" :src="item.img" :alt="item.id" />
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
     </div>
-    <div class="carousel-item">
-      <img class="d-inline p-2 w-10" 
-      src="https://static.cinemarkhoyts.com.ar/Images/Posters/62155eea4dbd73ca44d06e6b1da76a86.jpg?v=00000837" 
-      alt="Second slide">
-    </div>
-    <div class="carousel-item">
-      <img class="d-inline p-2 w-10" 
-      src="https://static.cinemarkhoyts.com.ar/Images/Posters/b308536a73b38edc6556812fb69c013a.jpg?v=00000837" 
-      alt="Third slide">
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
   </div>
 </template>
 
 <script>
 export default {
   name: 'carrusel-peli',
+  data () {
+      return {
+         imgPelis: [
+          {id: 0, img: 'https://static.cinemarkhoyts.com.ar/Images/Highlights/547.png'},
+          {id: 1, img: 'https://static.cinemarkhoyts.com.ar/Images/Highlights/531.png'},
+          {id: 2, img: 'https://static.cinemarkhoyts.com.ar/Images/Highlights/535.png'},
+          {id: 3, img: 'https://static.cinemarkhoyts.com.ar/Images/Highlights/536.png'},
+          {id: 4, img: 'https://static.cinemarkhoyts.com.ar/Images/Highlights/537.png'},
+          {id: 5, img: 'https://static.cinemarkhoyts.com.ar/Images/Highlights/539.png'},
+          {id: 6, img: 'https://static.cinemarkhoyts.com.ar/Images/Highlights/541.png'},
+          {id: 7, img: 'https://static.cinemarkhoyts.com.ar/Images/Highlights/542.png'},
+          {id: 8, img: 'https://static.cinemarkhoyts.com.ar/Images/Highlights/543.png'},
+          {id: 9, img: 'https://static.cinemarkhoyts.com.ar/Images/Highlights/545.png'},
+         ]
+      }
+  },
   props: {
     
   }

@@ -1,57 +1,52 @@
-import 
-
 <template>
-
-  <section class="src-componentes-peliculas">
+  <section>
     <div class="jumbotron">
+      <br>
       <h2>Peliculas</h2>
-      <Carrusel/>
-      <FormularioPeli/>
-      <hr>
-      <hr>
       <br>
       
+      <div class="d-inline" v-for="(pelicula,index) in peliculas" :key="index">
+        <div class="d-inline" @click="mostrarPeli()">
+          <img :src="pelicula.imagen" class="m-2" :alt="pelicula.nombre" :style="{ 'border-radius' : '10px' }">
+        </div>
+      </div>
+
     </div>
   </section>
 </template>
+
 <script>
-
-import FormularioPeli from './FormularioPeli.vue'
-import Carrusel from './Carrusel.vue'
-
-
   export default  {
     name: 'src-componentes-peliculas',
     components: {
-    FormularioPeli,
-    Carrusel
+
     },
     props: [],
-
     data () {
       return {
-         
+        peliculas: []
       }
     },
     methods: {
-    
+      async getPeliculas() {
+        try {
+          let { data : peliculas } = await this.axios(this.$store.state.getPelis)
+          this.peliculas = peliculas
+        }
+        catch(error) {
+          console.error('Error en getPeliculas', error.message)
+        }
+      },
+      mostrarPeli(){
+        console.log("mostrarPeli");
+      }
+    },
+    mounted () {
+        this.getPeliculas()
+    },
   }
-  }
-
 </script>
 
 <style scoped lang="css">
-  .src-componentes-peliculas {
-
-  }
-
-  .jumbotron {
-    background-color: teal;
-    color: white;
-  }
-
-  hr {
-    background-color: #bbb;
-  }
 
 </style>
