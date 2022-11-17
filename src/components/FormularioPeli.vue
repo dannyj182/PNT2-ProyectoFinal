@@ -212,20 +212,6 @@
       </vue-form>
       <button class="btn btn-success my-3 mr-2" @click="getPeliculas()">GET</button>
 
-      <div class="media alert alert-info" v-for="(pelicula,index) in peliculas" :key="index">
-          <img :src="pelicula.imagen" class="mr-3" width="250" :alt="pelicula.nombre" 
-          :style="{ 'border-radius' : '10px' }">
-          <div class="media-body">
-              <br>
-              <p>Nombre: <b>{{ pelicula.nombre }}</b></p>
-              <p>Género: <i>{{ pelicula.genero }}</i></p>
-              <p>Director: {{ pelicula.director }}</p>
-              <p>Duracion: {{ pelicula.duracion }}</p>
-              <p>Clasificación: {{ pelicula.clasificacion }}</p>
-              <p>Precio: {{ pelicula.precio }}</p>
-          </div>
-      </div> 
-
     </div>
 
 </template>
