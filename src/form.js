@@ -8,10 +8,19 @@ let options = {
             return !value.includes(" ")
         },
         'nombre-max-length' : function(value){
+            return value.length <= 30
+        },
+        'genero-max-length' : function(value){
+            return value.length <= 10
+        },
+        'director-max-length' : function(value){
             return value.length <= 20
         },
         'clasificacion-max-length' : function(value){
             return value.length <= 3
+        },
+        'contrasenia-max-length' : function(value){
+            return value.length <= 20
         },
     }
 }

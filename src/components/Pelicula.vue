@@ -11,6 +11,7 @@
         <p>Clasificación: {{ pelicula.clasificacion }}</p>
         <p>Precio: {{ pelicula.precio }}</p>
         <button class="btn btn-warning" @click="cerrar()">Cerrar</button>
+        <button class="btn btn-warning ml-2" @click="verFunciones(pelicula._id)">Funciones</button>
       </div>
       <div class="media-body ml-2">
         <p>{{pelicula.sinopsis}}</p>
@@ -36,6 +37,9 @@
     methods: {
       cerrar(){
         this.showPeli.forEach(item => item.valor = false);
+      },
+      verFunciones(id){
+        console.log(id)
       }
     },
     computed: {

@@ -46,7 +46,7 @@
             name="genero"
             required
             :minlength="generoMinLength"
-            nombre-max-length
+            genero-max-length
           />
   
           <field-messages name="genero" show="$dirty">
@@ -56,7 +56,7 @@
             <div slot="minlength" class="alert alert-danger mt-1">
               Este campo debe poseer al menos {{ generoMinLength }} caracteres.
             </div>
-            <div slot="nombre-max-length" class="alert alert-danger mt-1">
+            <div slot="genero-max-length" class="alert alert-danger mt-1">
               Este campo debe poseer máximo {{ generoMaxLength }} caracteres.
             </div>
           </field-messages>
@@ -75,7 +75,7 @@
             name="director"
             required
             :minlength="directorMinLength"
-            nombre-max-length
+            director-max-length
           />
   
           <field-messages name="director" show="$dirty">
@@ -85,7 +85,7 @@
             <div slot="minlength" class="alert alert-danger mt-1">
               Este campo debe poseer al menos {{ directorMinLength }} caracteres.
             </div>
-            <div slot="nombre-max-length" class="alert alert-danger mt-1">
+            <div slot="director-max-length" class="alert alert-danger mt-1">
               Este campo debe poseer máximo {{ directorMaxLength }} caracteres.
             </div>
           </field-messages>
@@ -246,9 +246,9 @@
           formState : {},
           formData: this.getInitialData(),
           nombreMinLength: 5,
-          nombreMaxLength: 20,
+          nombreMaxLength: 30,
           generoMinLength: 5,
-          generoMaxLength: 20,
+          generoMaxLength: 10,
           directorMinLength: 5,
           directorMaxLength: 20,
           duracionMin: 1,
