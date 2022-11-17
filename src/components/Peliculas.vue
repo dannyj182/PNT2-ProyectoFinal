@@ -34,14 +34,13 @@ import Carrusel from './Carrusel.vue'
 
     data () {
       return {
-        url: 'http://localhost:8080/cineort/peliculas/',
         peliculas: []
       }
     },
     methods: {
       async getPeliculas() {
         try {
-          let { data : peliculas } = await this.axios(this.url)
+          let { data : peliculas } = await this.axios(this.$store.state.getPelis)
           this.peliculas = peliculas
         }
         catch(error) {
