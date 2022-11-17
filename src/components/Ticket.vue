@@ -2,15 +2,14 @@
   <section align="center" class="ticket">
     <div>
       <h2>Peliculas</h2>
-      <Carrusel />
     </div>
     <div class="jumbotron">
       <hr>
       <hr>    
       <div>
         <h2 class="fondo1">Resumen de Entradas</h2><br>
-        <a class="link1" @click="$router.push('/peliculas')">volver a peliculas</a>
-        <a  class="link2" href="/">Inicio</a>
+        <a class="link1" @click="$router.push('/peliculas')">volver a peliculas</a><br><br>
+        <a class="link2" href="/">Inicio</a>
       </div>
     <hr>
       <hr>
@@ -21,13 +20,12 @@
 
 <script>
 
-import Carrusel from './Carrusel.vue'
 import apiTicket from './apiTicket.vue'
 
   export default  {
     name: 'src-components-ticket',
     components: {
-    Carrusel,
+    
     apiTicket
     },
     props: [],
@@ -71,14 +69,13 @@ import apiTicket from './apiTicket.vue'
   }
 
   .link1{
-    padding-inline: 27rem;
+    
     animation: none;
     color: antiquewhite;
     
   }
 
   .link2{
-    padding-inline: 35rem;
     animation: none;
     color: antiquewhite;
     
@@ -86,8 +83,7 @@ import apiTicket from './apiTicket.vue'
 
   .fondo1{
     background-color: black;
-    height: 3rem;
-    width: 135rem;
+    
   }
 
 
