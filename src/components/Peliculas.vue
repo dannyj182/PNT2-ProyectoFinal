@@ -1,12 +1,14 @@
 <template>
   <section>
     <div class="jumbotron">
-      <br>
       <h2>Peliculas</h2>
       <br>
-      
+      <div v-show="showPeli[0].valor">
+        <Pelicula :pelicula="pelicula" :showPeli="showPeli"/>
+      </div>
+      <br>
       <div class="d-inline" v-for="(pelicula,index) in peliculas" :key="index">
-        <div class="d-inline" @click="mostrarPeli()">
+        <div class="d-inline" @click="mostrarPeli(pelicula)">
           <img :src="pelicula.imagen" class="m-2" :alt="pelicula.nombre" :style="{ 'border-radius' : '10px' }">
         </div>
       </div>
@@ -16,14 +18,18 @@
 </template>
 
 <script>
+  import Pelicula from './Pelicula.vue'
+
   export default  {
     name: 'src-componentes-peliculas',
     components: {
-
+      Pelicula
     },
     props: [],
     data () {
       return {
+        showPeli: [{valor: false}],
+        pelicula: {},
         peliculas: []
       }
     },
@@ -37,8 +43,9 @@
           console.error('Error en getPeliculas', error.message)
         }
       },
-      mostrarPeli(){
-        console.log("mostrarPeli");
+      mostrarPeli(pShow){
+        this.showPeli[0].valor = true
+        this.pelicula = pShow
       }
     },
     mounted () {
