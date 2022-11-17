@@ -22,7 +22,7 @@
       </div>
     </div>
     <div v-else>
-      <div class="alert alert-info mt-1">Sin tickets</div>
+      <div class="alert alert-info mt-2 ">Sin tickets</div>
     </div>
 
     <br><br><br> <br><br>
