@@ -1,17 +1,12 @@
-import 
-
 <template>
-
   <section>
     <div class="jumbotron">
-      <Carrusel/>
-      <!-- <FormularioPeli/> -->
       <br>
       <h2>Peliculas</h2>
       <br>
       
       <div class="d-inline" v-for="(pelicula,index) in peliculas" :key="index">
-        <div class="d-inline" @click="metodo()">
+        <div class="d-inline" @click="mostrarPeli()">
           <img :src="pelicula.imagen" class="m-2" :alt="pelicula.nombre" :style="{ 'border-radius' : '10px' }">
         </div>
       </div>
@@ -19,19 +14,14 @@ import
     </div>
   </section>
 </template>
+
 <script>
-
-/* import FormularioPeli from './FormularioPeli.vue' */
-import Carrusel from './Carrusel.vue'
-
   export default  {
     name: 'src-componentes-peliculas',
     components: {
-    /* FormularioPeli, */
-    Carrusel
+
     },
     props: [],
-
     data () {
       return {
         peliculas: []
@@ -47,23 +37,16 @@ import Carrusel from './Carrusel.vue'
           console.error('Error en getPeliculas', error.message)
         }
       },
-      metodo(){
-        console.log("Probar");
+      mostrarPeli(){
+        console.log("mostrarPeli");
       }
-  },
-  mounted () {
-      this.getPeliculas()
-  },
+    },
+    mounted () {
+        this.getPeliculas()
+    },
   }
-
 </script>
 
 <style scoped lang="css">
-  .jumbotron {
-    background-color: teal;
-    color: white;
-  }
-  hr {
-    background-color: #bbb;
-  }
+
 </style>
