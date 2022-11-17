@@ -6,7 +6,9 @@ Vue.use(Vuex)
 export default new Vuex.Store({
     state : {
         estaLogueado : true,
-        getPelis: 'http://localhost:8082/cineort/peliculas/',
+        peliculas: [],
+        getPelis: 'http://localhost:8080/cineort/peliculas/',
+        postPelis: 'http://localhost:8080/cineort/peliculas/',
     },
     actions : {
        desloguearse({commit}){
@@ -14,8 +16,7 @@ export default new Vuex.Store({
        },
        loguearse({commit}) {
         commit('loguearse')  
-    },
-        
+       },
     },
     mutations : {
         desloguearse(state) {

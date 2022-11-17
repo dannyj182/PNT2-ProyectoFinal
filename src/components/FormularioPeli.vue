@@ -3,7 +3,6 @@
 <div class="jumbotron">
       <h2>Formulario</h2>
       <hr />
-      <hr />
   
       <vue-form :state="formState" @submit.prevent="enviar()">
   
@@ -46,7 +45,7 @@
             v-model.trim="formData.genero"
             name="genero"
             required
-            :minlength="nombreMinLength"
+            :minlength="generoMinLength"
             nombre-max-length
           />
   
@@ -55,10 +54,10 @@
               Campo requerido
             </div>
             <div slot="minlength" class="alert alert-danger mt-1">
-              Este campo debe poseer al menos {{ nombreMinLength }} caracteres.
+              Este campo debe poseer al menos {{ generoMinLength }} caracteres.
             </div>
             <div slot="nombre-max-length" class="alert alert-danger mt-1">
-              Este campo debe poseer máximo {{ nombreMaxLength }} caracteres.
+              Este campo debe poseer máximo {{ generoMaxLength }} caracteres.
             </div>
           </field-messages>
         </validate>
@@ -75,7 +74,7 @@
             v-model.trim="formData.director"
             name="director"
             required
-            :minlength="nombreMinLength"
+            :minlength="directorMinLength"
             nombre-max-length
           />
   
@@ -84,10 +83,10 @@
               Campo requerido
             </div>
             <div slot="minlength" class="alert alert-danger mt-1">
-              Este campo debe poseer al menos {{ nombreMinLength }} caracteres.
+              Este campo debe poseer al menos {{ directorMinLength }} caracteres.
             </div>
             <div slot="nombre-max-length" class="alert alert-danger mt-1">
-              Este campo debe poseer máximo {{ nombreMaxLength }} caracteres.
+              Este campo debe poseer máximo {{ directorMaxLength }} caracteres.
             </div>
           </field-messages>
         </validate>
@@ -159,7 +158,7 @@
         <validate tag="div">
           <label for="imagen">Imagen</label>
           <input
-            type="text"
+            type="url"
             id="imagen"
             class="form-control"
             autocomplete="off"
@@ -175,6 +174,27 @@
             </div>
             <div slot="no-espacios" class="alert alert-danger mt-1">
               Este campo no permite espacios intermedios
+            </div>
+          </field-messages>
+        </validate>
+
+        <br />
+
+        <validate tag="div">
+          <label for="sinopsis">Sinopsis</label>
+          <input
+            type="text"
+            id="sinopsis"
+            class="form-control"
+            autocomplete="off"
+            v-model.trim="formData.sinopsis"
+            name="sinopsis"
+            required
+          />
+  
+          <field-messages name="sinopsis" show="$dirty">
+            <div slot="required" class="alert alert-danger mt-1">
+              Campo requerido
             </div>
           </field-messages>
         </validate>
@@ -210,9 +230,8 @@
           Enviar
         </button>
       </vue-form>
-      <button class="btn btn-success my-3 mr-2" @click="getPeliculas()">GET</button>
-
-    </div>
+      
+  </div>
 
 </template>
 
@@ -224,11 +243,14 @@
     },
     data () {
       return {
-          url: 'http://localhost:8080/cineort/peliculas/',
           formState : {},
           formData: this.getInitialData(),
           nombreMinLength: 5,
           nombreMaxLength: 20,
+          generoMinLength: 5,
+          generoMaxLength: 20,
+          directorMinLength: 5,
+          directorMaxLength: 20,
           duracionMin: 1,
           duracionMax: 240,
           clasificacionLength: 3,
@@ -245,30 +267,23 @@
           duracion: null,
           clasificacion: null,
           imagen: null,
+          sinopsis: null,
           precio: null
         }
       },
       async enviar() {
         try {
           let peliculaNew = {...this.formData}
-          let { data : pelicula } =  await this.axios.post(this.url, peliculaNew, { 'content-type' : 'application/json' })
+          let { data : pelicula } =  await this.axios.post(this.$store.state.postPelis, peliculaNew, { 'content-type' : 'application/json' })
           this.peliculas.push(pelicula)
           this.formData = this.getInitialData()
           this.formState._reset()
         }
         catch(error) { console.error('Error en postUsuario', error.message) }
       },
-      async getPeliculas() {
-        try {
-          let { data : peliculas } = await this.axios(this.url)
-          this.peliculas = peliculas
-        }
-        catch(error) {
-          console.error('Error en getPeliculas', error.message)
-        }
-      }
     },
     computed: {
+      
     }
 }
 </script>
