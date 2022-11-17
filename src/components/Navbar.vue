@@ -16,32 +16,37 @@
       >
       <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav text-center">
-          <li class="nav-item active">
-            <router-link to="/peliculas">
-              <a class="nav-link text-light" href="#"
-                >Peliculas </a
-              >
-            </router-link>
-          </li>
-          <li class="nav-item">
-             <router-link to="/formulario" v-if="!($store.state.estaLogueado)">
+      <div class="collapse navbar-collapse" id="navbarNav" >
+        <ul class="navbar-nav text-center " v-if="!($store.state.estaLogueado)">
+          <li class="nav-item ">
+             <router-link to="/formulario" >
               <a class="nav-link text-light" href="#">Login</a>
              </router-link>
-
-              <router-link to="/peliculas" v-else >
-              <a class="nav-link text-light" href="#">LogOut</a>
-             </router-link>
-
           </li>
-           <li class="nav-item">
-            <router-link to="/formulario" v-if="($store.state.estaLogueado)">
+        </ul>
+        <ul class="navbar-nav text-center d-flex" v-else>
+          <li class="nav-item ">
+            <router-link to="/peliculas" >
+              <a class="nav-link text-light" href="#">Peliculas </a>
+             </router-link>
+          </li>
+          <li class="nav-item ">
+              <a class="nav-link text-light" href="#" @click=logout() >LogOut</a>
+          </li>
+          <li class="nav-item ">
+             <router-link to="/formulario" >
               <a class="nav-link" href="#"><i class="bi bi-person-circle"></i></a>
+            </router-link>
+          </li>
+
+          <li class="nav-item">
+            <router-link to="/ticket" >
+              <a class="nav-link" href="#">Tickets</a>
             </router-link>
           </li>
           
         </ul>
+        
         </div>
     </nav>
   </section>
@@ -55,7 +60,12 @@ export default {
   data() {
     return {};
   },
-  methods: {},
+  methods: {
+    logout(){
+      console.log("hola")
+       this.$store.dispatch('desloguearse')
+    }
+  },
   computed: {},
 };
 </script>
