@@ -2,7 +2,6 @@
   <section>
     <div class="jumbotron">
       <h2>Peliculas</h2>
-      <br>
       <div v-show="showPeli[0].valor">
         <Pelicula :pelicula="pelicula" :showPeli="showPeli"/>
       </div>
@@ -12,18 +11,20 @@
           <img :src="pelicula.imagen" class="m-2" :alt="pelicula.nombre" :style="{ 'border-radius' : '10px' }">
         </div>
       </div>
-
     </div>
+    <FormularioPeli/>
   </section>
 </template>
 
 <script>
   import Pelicula from './Pelicula.vue'
+  import FormularioPeli from './FormularioPeli.vue'
 
   export default  {
     name: 'src-componentes-peliculas',
     components: {
-      Pelicula
+      Pelicula,
+      FormularioPeli
     },
     props: [],
     data () {
@@ -47,6 +48,9 @@
         this.showPeli[0].valor = true
         this.pelicula = pShow
       }
+    },
+    computed: {
+      
     },
     mounted () {
         this.getPeliculas()
