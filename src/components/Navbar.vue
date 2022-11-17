@@ -61,6 +61,5 @@ export default {
 </script>
 
 <style scoped lang="css">
-.src-componentes-navbar {
-}
+
 </style>
