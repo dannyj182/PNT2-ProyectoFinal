@@ -3,7 +3,7 @@
     <nav class="navbar navbar-expand-md navbar-dark bg-dark d-flex flex-row-reverse  ">
       
        <router-link to="/">
-        <a class="navbar-brand" href="#"> 🎬 Ciner ORT</a>
+        <a class="navbar-brand" href="#"> 🎬 Cine ORT</a>
        </router-link>
       <button
         class="navbar-toggler"

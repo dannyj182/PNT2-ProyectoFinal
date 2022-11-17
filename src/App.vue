@@ -2,7 +2,7 @@
   <div id ="app" class = "container-fluid mt-3">
     <div class="jumbotron">
       <Navbar/>
-      <br>
+      <Carrusel/>
       <router-view></router-view>
       <Footer/>
     </div>
@@ -12,15 +12,15 @@
 
 <script>
 import Navbar from './components/Navbar.vue'
-import Footer from './components/Footer'
-
+import Footer from './components/Footer.vue'
+import Carrusel from './components/Carrusel.vue'
 
 export default {
   name: 'App',
   components: {
     Navbar,
-    Footer
-
+    Footer,
+    Carrusel
   }
 }
 </script>
