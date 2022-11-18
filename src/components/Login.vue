@@ -6,15 +6,8 @@
 
         <validate tag="div">
           <label for="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            class="form-control"
-            autocomplete="off"
-            v-model.trim="formData.email"
-            name="email"
-            required
-          />
+          <input type="email" id="email" class="form-control" autocomplete="off" v-model.trim="formData.email" name="email"
+            required />
           <field-messages name="email" show="$dirty">
             <div slot="required" class="alert alert-danger mt-1">
               Campo requerido
@@ -23,7 +16,7 @@
               Email no válido
             </div>
           </field-messages>
-        </validate>
+          </validate>
 
         <validate tag="div">
           <label for="password">Contraseña</label>
@@ -90,7 +83,7 @@ export default {
         }
         catch(error) { console.error('Error en validarUsuario', error.message) }
     },
-    limpiarForm(){
+    limpiarForm() {
       this.formData = this.getInitialData();
       this.formState._reset();
     },
