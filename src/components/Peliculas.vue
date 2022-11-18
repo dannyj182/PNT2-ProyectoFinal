@@ -9,7 +9,7 @@
       <br>
       <div class="d-inline" v-for="(pelicula,index) in peliculas" :key="index">
         <div class="d-inline" @click="mostrarPeli(pelicula)">
-          <img :src="pelicula.imagen" class="m-2" :alt="pelicula.nombre" :style="{ 'border-radius' : '10px' }">
+          <img :src="pelicula.imagen" class="m-3" :alt="pelicula.nombre" :style="{ 'border-radius' : '10px' }">
         </div>
       </div>
     </div>
@@ -59,5 +59,13 @@
 </script>
 
 <style scoped lang="css">
+  img:hover{ 
+     border: 4px solid rgba(17, 14, 19, 0.26);
+    -webkit-transform: scale(1
+    1);
+    transform: scale(1.1);
+    cursor: pointer;
+    padding:0.2rem;
+  }
 
 </style>
