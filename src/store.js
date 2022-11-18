@@ -6,6 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
     state : {
         estaLogueado : false,
+        esAdmin: false,
         failUser: false,
         peliculas: [],
         getPelis: 'http://localhost:8080/cineort/peliculas/',

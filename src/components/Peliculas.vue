@@ -12,19 +12,19 @@
         </div>
       </div>
     </div>
-    <FormularioPeli/>
+   <!--  <FormularioPeli/> -->
   </section>
 </template>
 
 <script>
   import Pelicula from './Pelicula.vue'
-  import FormularioPeli from './FormularioPeli.vue'
+  /* import FormularioPeli from './FormularioPeli.vue' */
 
   export default  {
     name: 'src-componentes-peliculas',
     components: {
       Pelicula,
-      FormularioPeli
+      /* FormularioPeli */
     },
     props: [],
     data () {
