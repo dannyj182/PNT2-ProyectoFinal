@@ -62,7 +62,6 @@ export default {
   },
   methods: {
     logout(){
-      console.log("hola")
        this.$store.dispatch('desloguearse')
     }
   },
