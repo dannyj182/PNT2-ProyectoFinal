@@ -9,7 +9,7 @@
       <th>
         <div align="center" id="jb2" class="jumbotron">
 
-<vue-form :state="formState" @submit.prevent="enviar()">
+<vue-form :state="formState" @submit.prevent="postPelicula()">
 
   <validate tag="div">
     <label for="nombre">Nombre</label><br>
@@ -176,10 +176,28 @@
         <img class="foto" src="https://static.cinemarkhoyts.com.ar/Images/Highlights/545.png"><br><br><br>
       </th>
     </table>
+
+    <button class="btn btn-warning mb-3" @click="mostrarOcultar()">{{mensaje}}</button>
+
+    <br>
   
-
-
-
+    <div v-show="estaMostrando">
+      <div class="d-inline" v-for="(pelicula,index) in $store.state.peliculas" :key="index">
+          <div class="media alert alert-danger">
+            <img :src="pelicula.imagen" class="m-2" :alt="pelicula.nombre" :style="{ 'border-radius' : '10px' }">
+            <div class="media-body ml-2">
+              <p>Nombre: <b>{{ pelicula.nombre }}</b></p>
+              <p>Género: <i>{{ pelicula.genero }}</i></p>
+              <p>Director: {{ pelicula.director }}</p>
+              <p>Duración: <i><u>{{ pelicula.duracion }} min</u></i></p>
+              <p>Clasificación: {{ pelicula.clasificacion }}</p>
+              <p>Precio: {{ pelicula.precio }}</p>
+              <button class="btn btn-warning" @click="putPelicula(pelicula._id)">Editar</button>
+              <button class="btn btn-warning ml-2" @click="deletePelicula(pelicula._id)">Borrar</button>
+            </div>
+          </div>
+      </div>
+    </div>
 </div>
 
 </template>
@@ -204,7 +222,8 @@ export default {
       duracionMax: 240,
       clasificacionLength: 3,
       precioMin: 1,
-      peliculas: []
+      mensaje: 'Mostrar Películas',
+      estaMostrando: false
     }
   },
   methods: {
@@ -220,16 +239,48 @@ export default {
         precio: null
       }
     },
-    async enviar() {
+    async postPelicula() {
       try {
-        let peliculaNew = { ...this.formData }
-        let { data: pelicula } = await this.axios.post(this.$store.state.postPelis, peliculaNew, { 'content-type': 'application/json' })
-        this.peliculas.push(pelicula)
-        this.formData = this.getInitialData()
-        this.formState._reset()
+        let newPeli = { ...this.formData }
+        let { data: pelicula } = await this.axios.post(this.$store.state.postPeli, newPeli, { 'content-type': 'application/json' })
+        this.$store.dispatch('agregarPelicula', pelicula)
+        this.limpiarForm()
       }
       catch (error) { console.error('Error en postUsuario', error.message) }
     },
+    limpiarForm() {
+      this.formData = this.getInitialData();
+      this.formState._reset();
+    },
+    mostrarOcultar(){
+      !this.estaMostrando ? this.mensaje = 'Ocultar Películas' : this.mensaje = 'Mostrar Películas'
+      this.estaMostrando = !this.estaMostrando
+    },
+    async deletePelicula(id) {
+      try {
+        let { data : res } = await this.axios.delete(this.$store.state.deletePeli + id)
+        if(res.deletedCount) this.$store.dispatch('borrarPelicula', id)
+      }
+      catch(error) { console.error('Error en deletePelicula', error.message) } 
+    },
+    async putPelicula(id) {
+      let peliUpdate = {
+        _id: id,
+        nombre: 'ORT Argentina',
+        genero: 'Académico',
+        director: 'Adrián Moscovich',
+        duracion: 0,
+        clasificacion: 'ATP+1000',
+        imagen: 'https://aulavirtual.instituto.ort.edu.ar/pluginfile.php/1/theme_institutort37/logo/1667864868/logo.png',
+        sinopsis: 'Se editó la película exitosamente',
+        precio: 0
+      }
+      try {
+        let { data : res } = await this.axios.put(this.$store.state.putPeli + id, peliUpdate, { 'content-type' : 'application/json' })
+        if(res.modifiedCount) this.$store.dispatch('updatePelicula', peliUpdate)
+      }
+      catch(error) { console.error('Error en editarPelicula', error.message) }        
+    }
   },
   computed: {
 
@@ -238,18 +289,15 @@ export default {
 </script>
 
 <style scoped lang="css">
-
 label{
   font-size: medium;
-    font-family: 'Montserrat', sans-serif;
-    color: #750a06;
-    background-color: rgba(255, 255, 255, 0.596);
-
-    padding-right: 60px;
-    padding-left: 60px;
-    border-radius: 7px;
+  font-family: 'Montserrat', sans-serif;
+  color: #750a06;
+  background-color: rgba(255, 255, 255, 0.596);
+  padding-right: 60px;
+  padding-left: 60px;
+  border-radius: 7px;
 }
-
 #jb1{
   color: antiquewhite;
   background-image: url('https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y2luZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60');
@@ -258,37 +306,31 @@ label{
 #jb2{
   background-color: rgba(0, 0, 0, 0.877);
 }
-
 .tablaPeli{
   margin: auto;
 }
 .caja{
   margin-top: 12px;
-    border: auto;
-    background-color: #131212;
-    color: rgb(167, 164, 164);
-    border-collapse: collapse;
-    /*  color: #750a06;  */
-    border-radius: 7px;
-    opacity: 0.7;
-    width: 400px;
+  border: auto;
+  background-color: #131212;
+  color: rgb(167, 164, 164);
+  border-collapse: collapse;
+  /*  color: #750a06;  */
+  border-radius: 7px;
+  opacity: 0.7;
+  width: 400px;
 }
-
 .caja:hover {
-    transition: all 0.5s ease;
-
-    box-shadow: 1px 1px 7px rgb(255, 255, 255);
+  transition: all 0.5s ease;
+  box-shadow: 1px 1px 7px rgb(255, 255, 255);
 }
-
 .foto{
   padding-left: 80px;
-    height: 200px;
-   opacity: 0.9;
+  height: 200px;
+  opacity: 0.9;
 }
-
 .foto:hover{
   transition: all 0.9s ease;
-box-shadow: 1px 4px 12px rgb(255, 255, 255);
+  box-shadow: 1px 4px 12px rgb(255, 255, 255);
 }
-
 </style>
