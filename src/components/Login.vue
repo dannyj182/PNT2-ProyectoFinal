@@ -64,6 +64,7 @@ export default {
       const resultado = await this.validarUsuario(usuario)
       console.log(`Desde iniciarSesion ${resultado}`)
       this.$store.dispatch('loguearse')
+      this.$router.push('/peliculas')
       this.limpiarForm()
     },
     async validarUsuario(usuario) {
