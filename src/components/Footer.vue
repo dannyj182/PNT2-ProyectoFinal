@@ -52,8 +52,8 @@
   
   </section>
 </template>
-<script>
 
+<script>
   export default  {
     name: 'src-components-footer',
     props: [],
@@ -67,21 +67,14 @@
     
   }
   }
-
 </script>
 
 <style scoped lang="css">
-  .src-components-footer {
-
-  }
-
   .jumbotron {
     background-color: teal;
     color: white;
   }
-
   hr {
     background-color: #bbb;
   }
-
 </style>
