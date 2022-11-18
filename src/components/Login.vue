@@ -70,19 +70,19 @@ export default {
       };
     },
     async iniciarSesion() {
-      const usuario = { ...this.formData }
-      const resultado = await this.validarUsuario(usuario)
-      if(resultado) {
+      const user = { ...this.formData }
+      const usuario = await this.validarUsuario(user)
+      if(usuario) {
         this.$store.dispatch('loguearse')
         this.$router.push('/peliculas')
         }
       else this.$store.dispatch('failLogin')
       this.limpiarForm()
     },
-    async validarUsuario(usuario) {
+    async validarUsuario(user) {
         try {
-          let { data : resultado } =  await this.axios.post(this.$store.state.validateUser, usuario, { 'content-type' : 'application/json' })
-          return resultado
+          let { data : usuario } =  await this.axios.post(this.$store.state.validateUser, user, { 'content-type' : 'application/json' })
+          return usuario
         }
         catch(error) { console.error('Error en validarUsuario', error.message) }
     },
