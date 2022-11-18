@@ -14,6 +14,7 @@ export default new Vuex.Store({
         postPeli: 'http://localhost:8080/cineort/peliculas/',
         putPeli: 'http://localhost:8080/cineort/peliculas/',
         deletePeli: 'http://localhost:8080/cineort/peliculas/',
+        postUsuarios: 'http://localhost:8080/cineort/usuarios/',
         validateUser: 'http://localhost:8080/cineort/usuarios/validar/',
     },
     actions : {
