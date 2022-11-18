@@ -2,57 +2,71 @@
   <section class="src-componentes-navbar">
     <nav class="navbar navbar-expand-md navbar-dark bg-dark d-flex ">
       
-       <router-link to="/">
+      <router-link to="/">
         <a class="navbar-brand" href="#"> 🎬 Cine ORT</a>
-       </router-link>
-
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-      <span class="navbar-toggler-icon"></span>
+      </router-link>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav" >
+      <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav text-center " v-if="!($store.state.estaLogueado)">
           <li class="nav-item ">
-             <router-link to="/login" >
+            <router-link to="/login">
               <a class="nav-link text-light" href="#">Login</a>
-             </router-link>
+            </router-link>
           </li>
         </ul>
-        <ul class="navbar-nav text-center " v-else>
+        <ul class="navbar-nav text-center " v-else-if="!($store.state.esAdmin)">
           <li class="nav-item">
-            <router-link to="/peliculas" >
+            <router-link to="/peliculas">
               <a class="nav-link text-light" href="#">Peliculas </a>
-             </router-link>
+            </router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/ticket" >
+            <router-link to="/ticket">
               <a class="nav-link text-light" href="#">Tickets</a>
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/compra" >
+            <router-link to="/compra">
+              <a class="nav-link text-light" href="#">Comprar</a>
+            </router-link>
+          </li>
+      
+          <li class="nav-item ">
+            <a class="nav-link " href="#" @click=logout()>LogOut</a>
+          </li>
+      
+        </ul>
+
+        <ul class="navbar-nav text-center " v-else>
+          <li class="nav-item">
+            <router-link to="/peliculas">
+              <a class="nav-link text-light" href="#">Peliculas </a>
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/ticket">
+              <a class="nav-link text-light" href="#">Tickets</a>
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/compra">
               <a class="nav-link text-light" href="#">Comprar</a>
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/abmPelicula" >
+            <router-link to="/abmPelicula">
               <a class="nav-link text-light" href="#">Administrar Peliculas</a>
             </router-link>
           </li>
-
+      
           <li class="nav-item ">
-              <a class="nav-link " href="#" @click=logout() >LogOut</a>
+            <a class="nav-link " href="#" @click=logout()>LogOut</a>
           </li>
-          
         </ul>
-        
+
         </div>
     </nav>
   </section>
@@ -68,7 +82,9 @@ export default {
   },
   methods: {
     logout(){
+      alert('Le esperamos nuevamente')
        this.$store.dispatch('desloguearse')
+       this.$store.dispatch('desloguearseAdmin')
        this.$router.push('/')
     }
   },
