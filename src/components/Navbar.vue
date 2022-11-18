@@ -31,20 +31,18 @@
               <a class="nav-link text-light" href="#">Peliculas </a>
              </router-link>
           </li>
-          <li class="nav-item ">
-              <a class="nav-link " href="#" @click=logout() >LogOut</a>
-          </li>
-
           <li class="nav-item">
             <router-link to="/ticket" >
               <a class="nav-link text-light" href="#">Tickets</a>
             </router-link>
           </li>
-
           <li class="nav-item">
             <router-link to="/compra" >
               <a class="nav-link text-light" href="#">Comprar</a>
             </router-link>
+          </li>
+          <li class="nav-item ">
+              <a class="nav-link " href="#" @click=logout() >LogOut</a>
           </li>
           
         </ul>
