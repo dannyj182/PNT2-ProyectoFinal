@@ -6,6 +6,7 @@ import Inicio from './components/Login.vue';
 import Peliculas from './components/Peliculas.vue'
 import Ticket from './components/Ticket.vue'
 import Compra from './components/Compra.vue'
+import ABMPelicula from './components/ABMPelicula.vue'
 
 Vue.use(VueRouter)
 
@@ -16,7 +17,8 @@ export const router = new VueRouter({
         {path : '/login' , component: Inicio },
         {path : '/peliculas' , component: Peliculas },
         {path : '/ticket' , component: Ticket },
-        {path : '/comprar' , component: Compra }
+        {path : '/comprar' , component: Compra },
+        {path : '/abmPelicula' , component: ABMPelicula }
     ]
 
 })
