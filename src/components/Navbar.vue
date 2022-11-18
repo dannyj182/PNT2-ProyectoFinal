@@ -26,7 +26,7 @@
           </li>
         </ul>
         <ul class="navbar-nav text-center " v-else>
-          <li class="nav-item ">
+          <li class="nav-item">
             <router-link to="/peliculas" >
               <a class="nav-link text-light" href="#">Peliculas </a>
              </router-link>
@@ -39,6 +39,11 @@
           <li class="nav-item">
             <router-link to="/compra" >
               <a class="nav-link text-light" href="#">Comprar</a>
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link to="/abmPelicula" >
+              <a class="nav-link text-light" href="#">Administrar Peliculas</a>
             </router-link>
           </li>
           <li class="nav-item ">
