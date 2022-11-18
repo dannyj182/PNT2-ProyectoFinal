@@ -72,7 +72,10 @@ export default {
     async iniciarSesion() {
       const usuario = { ...this.formData }
       const resultado = await this.validarUsuario(usuario)
-      if(resultado) this.$store.dispatch('loguearse')
+      if(resultado) {
+        this.$store.dispatch('loguearse')
+        this.$router.push('/peliculas')
+        }
       else this.$store.dispatch('failLogin')
       this.limpiarForm()
     },
