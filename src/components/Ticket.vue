@@ -64,6 +64,10 @@ import apiTicket from './apiTicket.vue'
     animation: none;
     color: antiquewhite;
   }
+
+  .link1:hover{
+    cursor: pointer;
+  }
   .link2{
     animation: none;
     color: antiquewhite;

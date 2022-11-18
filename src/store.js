@@ -12,6 +12,7 @@ export default new Vuex.Store({
         peliculas: [],
         getPelis: 'http://localhost:8080/cineort/peliculas/',
         postPelis: 'http://localhost:8080/cineort/peliculas/',
+        postUsuarios: 'http://localhost:8080/cineort/usuarios/',
         validateUser: 'http://localhost:8080/cineort/usuarios/validar/',
     },
     actions : {

@@ -46,6 +46,7 @@
               <a class="nav-link text-light" href="#">Administrar Peliculas</a>
             </router-link>
           </li>
+
           <li class="nav-item ">
               <a class="nav-link " href="#" @click=logout() >LogOut</a>
           </li>
