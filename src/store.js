@@ -16,6 +16,7 @@ export default new Vuex.Store({
         deletePeli: 'http://localhost:8080/cineort/peliculas/',
         postUsuarios: 'http://localhost:8080/cineort/usuarios/',
         validateUser: 'http://localhost:8080/cineort/usuarios/validar/',
+        validateAdmin: 'http://localhost:8080/cineort/usuarios/validarAdmin/',
     },
     actions : {
        desloguearse({commit}){
@@ -24,6 +25,15 @@ export default new Vuex.Store({
        loguearse({commit}, usuario) {
         commit('loguearse', usuario)  
        },
+
+       loguearseAdmin({commit}, usuario){
+        commit('loguearseAdmin', usuario) 
+       },
+
+       desloguearseAdmin({commit}){
+        commit('desloguearseAdmin') 
+       },
+
        failLogin({commit}){
         commit('failLogin')
        },
@@ -49,6 +59,19 @@ export default new Vuex.Store({
         loguearse(state, usuario) {
             state.estaLogueado = true
             state.currentUser = usuario
+        },
+
+        loguearseAdmin(state, usuario){
+            state.estaLogueado = true
+            state.esAdmin =true;
+            state.currentUser = usuario; // ?
+        },
+
+        desloguearseAdmin(state){
+            state.estaLogueado = false;
+            state.esAdmin = false;
+            state.failUser =false;
+            state.currentUser = null
         },
         failLogin(state){
             state.failUser = true

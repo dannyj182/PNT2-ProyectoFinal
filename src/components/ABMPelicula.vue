@@ -300,7 +300,7 @@ label{
 }
 #jb1{
   color: antiquewhite;
-  background-image: url('https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y2luZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60');
+  background-image: url('https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y2luZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=2000&q=60');
   background-color: rgba(32, 32, 32, 0.651);
 }
 #jb2{
