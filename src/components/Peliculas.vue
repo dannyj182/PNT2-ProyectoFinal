@@ -1,5 +1,6 @@
 <template>
   <section>
+    <Carrusel/>
     <div class="jumbotron">
       <h2>Peliculas</h2>
       <div v-show="showPeli[0].valor">
@@ -12,19 +13,18 @@
         </div>
       </div>
     </div>
-    <FormularioPeli/>
   </section>
 </template>
 
 <script>
   import Pelicula from './Pelicula.vue'
-  import FormularioPeli from './FormularioPeli.vue'
+  import Carrusel from './Carrusel.vue'
 
   export default  {
     name: 'src-componentes-peliculas',
     components: {
       Pelicula,
-      FormularioPeli
+      Carrusel
     },
     props: [],
     data () {
