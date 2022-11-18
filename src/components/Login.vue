@@ -19,19 +19,30 @@
           </validate>
 
         <validate tag="div">
-          <label for="contrasenia">Contraseña</label>
-          <input type="password" id="contrasenia" class="form-control" autocomplete="off" v-model.trim="formData.contrasenia"
-            name="contrasenia" required />
-          <field-messages name="contrasenia" show="$dirty">
+          <label for="password">Contraseña</label>
+          <input
+            type="password"
+            id="password"
+            class="form-control"
+            autocomplete="off"
+            v-model.trim="formData.password"
+            name="password"
+            required
+          />
+          <field-messages name="password" show="$dirty">
             <div slot="required" class="alert alert-danger mt-1">
               Campo requerido
             </div>
           </field-messages>
-          </validate>
-          
-          <button class="btn btn-outline-dark my-3" :disabled="formState.$invalid">
-            Iniciar Sesión
-          </button>
+        </validate>
+
+        <div v-show="$store.state.failUser" class="alert alert-danger mt-1">
+              Credenciales incorrectas
+        </div>
+
+        <button class="btn btn-outline-dark my-3" :disabled="formState.$invalid">
+          Iniciar Sesión
+        </button>
 
       </vue-form>
 
@@ -55,25 +66,25 @@ export default {
     getInitialData() {
       return {
         email: null,
-        contrasenia: null,
+        password: null,
       };
     },
     async iniciarSesion() {
-      const usuario = { ...this.formData };
-      console.log(`El usuario es ${usuario}`);
+      const usuario = { ...this.formData }
       const resultado = await this.validarUsuario(usuario)
-      console.log(`Desde iniciarSesion ${resultado}`)
-      this.$store.dispatch('loguearse')
-      this.$router.push('/peliculas')
+      if(resultado) {
+        this.$store.dispatch('loguearse')
+        this.$router.push('/peliculas')
+        }
+      else this.$store.dispatch('failLogin')
       this.limpiarForm()
     },
     async validarUsuario(usuario) {
-      try {
-        let { data: resultado } = await this.axios.get(this.$store.state.getUser, usuario, { 'content-type': 'application/json' })
-        console.log(`Desde validarUsuario ${resultado}`)
-        return resultado
-      }
-      catch (error) { console.error('Error en validarUsuario', error.message) }
+        try {
+          let { data : resultado } =  await this.axios.post(this.$store.state.validateUser, usuario, { 'content-type' : 'application/json' })
+          return resultado
+        }
+        catch(error) { console.error('Error en validarUsuario', error.message) }
     },
     limpiarForm() {
       this.formData = this.getInitialData();
