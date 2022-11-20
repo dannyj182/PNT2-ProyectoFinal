@@ -9,7 +9,7 @@
       <th>
         <div align="center" id="jb2" class="jumbotron">
 
-<vue-form :state="formState" @submit.prevent="postPelicula()">
+<vue-form :state="formState"  @submit.prevent="putPostPelicula(peliId) ">
 
   <validate tag="div">
     <label for="nombre">Nombre</label><br>
@@ -162,8 +162,11 @@
 
   <br />
 
-  <button class="btn btn-outline-danger my-3" :disabled="formState.$invalid">
+  <button v-if= crear class="btn btn-outline-danger my-3" :disabled="formState.$invalid">
     Enviar
+  </button>
+  <button v-else class="btn btn-outline-danger my-3" >
+    Editar
   </button>
 </vue-form>
 
@@ -192,7 +195,7 @@
               <p>Duración: <i><u>{{ pelicula.duracion }} min</u></i></p>
               <p>Clasificación: {{ pelicula.clasificacion }}</p>
               <p>Precio: {{ pelicula.precio }}</p>
-              <button class="btn btn-warning" @click="putPelicula(pelicula._id)">Editar</button>
+              <button class="btn btn-warning" @click="editarPeli(pelicula._id)">Editar</button>
               <button class="btn btn-warning ml-2" @click="deletePelicula(pelicula._id)">Borrar</button>
             </div>
           </div>
@@ -223,7 +226,10 @@ export default {
       clasificacionLength: 3,
       precioMin: 1,
       mensaje: 'Mostrar Películas',
-      estaMostrando: false
+      estaMostrando: false,
+      peliActual:"",
+      crear: true,
+      peliId: "",
     }
   },
   methods: {
@@ -244,6 +250,7 @@ export default {
         let newPeli = { ...this.formData }
         let { data: pelicula } = await this.axios.post(this.$store.state.postPeli, newPeli, { 'content-type': 'application/json' })
         this.$store.dispatch('agregarPelicula', pelicula)
+        this.crear= true;
         this.limpiarForm()
       }
       catch (error) { console.error('Error en postUsuario', error.message) }
@@ -255,6 +262,8 @@ export default {
     mostrarOcultar(){
       !this.estaMostrando ? this.mensaje = 'Ocultar Películas' : this.mensaje = 'Mostrar Películas'
       this.estaMostrando = !this.estaMostrando
+      this.formData = this.getInitialData();
+      this.crear = true;
     },
     async deletePelicula(id) {
       try {
@@ -263,8 +272,30 @@ export default {
       }
       catch(error) { console.error('Error en deletePelicula', error.message) } 
     },
+
+    editarPeli(id){
+      this.crear = false;
+      this.getPelicula(id)
+    },
+
+    putPostPelicula(id){
+      console.log(id)
+      this.crear ? this.postPelicula() : this.putPelicula(id)
+      this.peliId= ""
+    },
+
+    async getPelicula(id){
+      try{
+        let {data:res} = await this.axios.get(this.$store.state.getPelis + id)
+        this.peliActual = res
+        this.formData = this.peliActual
+        this.peliId= this.peliActual._id;
+      }
+      catch(error) { console.error('Error en getPelicula por Id', error.message) } 
+
+    },
     async putPelicula(id) {
-      let peliUpdate = {
+/*       let peliUpdate = {
         _id: id,
         nombre: 'ORT Argentina',
         genero: 'Académico',
@@ -274,10 +305,11 @@ export default {
         imagen: 'https://aulavirtual.instituto.ort.edu.ar/pluginfile.php/1/theme_institutort37/logo/1667864868/logo.png',
         sinopsis: 'Se editó la película exitosamente',
         precio: 0
-      }
+      } */
       try {
-        let { data : res } = await this.axios.put(this.$store.state.putPeli + id, peliUpdate, { 'content-type' : 'application/json' })
-        if(res.modifiedCount) this.$store.dispatch('updatePelicula', peliUpdate)
+        let { data : res } = await this.axios.put(this.$store.state.putPeli + id, { ...this.formData }, { 'content-type' : 'application/json' })
+        if(res.modifiedCount) this.$store.dispatch('updatePelicula', { ...this.formData })
+         this.limpiarForm()
       }
       catch(error) { console.error('Error en editarPelicula', error.message) }        
     }

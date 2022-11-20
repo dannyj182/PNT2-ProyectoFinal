@@ -10,6 +10,7 @@ export default new Vuex.Store({
         failUser: false,
         currentUser: null,
         peliculas: [],
+        getFunciones: 'http://localhost:8080/cineort/funciones/obtenerPorPelicula',
         getPelis: 'http://localhost:8080/cineort/peliculas/',
         postPeli: 'http://localhost:8080/cineort/peliculas/',
         putPeli: 'http://localhost:8080/cineort/peliculas/',

@@ -2,7 +2,10 @@
   <section class="src-componentes-navbar">
     <nav class="navbar navbar-expand-md navbar-dark bg-dark d-flex ">
       
-      <router-link to="/">
+      <router-link v-if="($store.state.estaLogueado)" to="/peliculas">
+        <a class="navbar-brand" href="#"> 🎬 Cine ORT</a>
+      </router-link>
+      <router-link v-else to="/">
         <a class="navbar-brand" href="#"> 🎬 Cine ORT</a>
       </router-link>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
@@ -24,13 +27,13 @@
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/ticket">
-              <a class="nav-link text-light" href="#">Tickets</a>
+            <router-link to="/compra">
+              <a class="nav-link text-light" href="#">Comprar</a>
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/compra">
-              <a class="nav-link text-light" href="#">Comprar</a>
+            <router-link to="/ticket">
+              <a class="nav-link text-light" href="#">Tickets</a>
             </router-link>
           </li>
       
@@ -47,13 +50,13 @@
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/ticket">
-              <a class="nav-link text-light" href="#">Tickets</a>
+            <router-link to="/compra">
+              <a class="nav-link text-light" href="#">Comprar</a>
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/compra">
-              <a class="nav-link text-light" href="#">Comprar</a>
+            <router-link to="/ticket">
+              <a class="nav-link text-light" href="#">Tickets</a>
             </router-link>
           </li>
           <li class="nav-item">
@@ -93,5 +96,8 @@ export default {
 </script>
 
 <style scoped lang="css">
-
+  li a:hover{
+    color: rgb(243, 220, 12) !important;
+    text-decoration: none;
+  }
 </style>
