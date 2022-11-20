@@ -45,7 +45,7 @@
         <!-- Copyright -->
         <div class="text-center p-3 " style="background-color: rgba(0, 0, 0, 0.2);">
         © 2022 Copyright:
-        <p class="text-white d-inline">Cine Ort - apellidos</p>
+        <p class="text-white d-inline">Cine Ort - Jimenez, Ortega, Pereyra, Taddeo</p>
         </div>
         <!-- Copyright -->
     </footer>
