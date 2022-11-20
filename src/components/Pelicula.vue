@@ -11,10 +11,17 @@
         <p>Clasificación: {{ pelicula.clasificacion }}</p>
         <p>Precio: {{ pelicula.precio }}</p>
         <button class="btn btn-warning" @click="cerrar()">Cerrar</button>
-        <button class="btn btn-warning ml-2" @click="verFunciones(pelicula._id)">Funciones</button>
+        <button class="btn btn-warning ml-2" @click="verFunciones()">Funciones</button>
       </div>
       <div class="media-body ml-2">
         <p>{{pelicula.sinopsis}}</p>
+        <div >
+          <h5>Fechas:</h5>
+          <div class="d-inline" v-for="(f,index) in fechas" :key="index">
+            <span class="p-1 m-2 btn bg-light">{{f}}</span>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -25,13 +32,12 @@
 
   export default  {
     name: 'src-components-pelicula',
-    props: ['pelicula', 'showPeli'],
+    props: ['pelicula', 'showPeli', 'fechas'],
     mounted () {
 
     },
     data () {
       return {
-        
       }
     },
     methods: {
@@ -40,11 +46,13 @@
       },
       verFunciones(id){
         console.log(id)
-      }
-    },
-    computed: {
+         this.funciones = true
+      },
 
-    }
+  
+
+    },
+    
 }
 
 </script>

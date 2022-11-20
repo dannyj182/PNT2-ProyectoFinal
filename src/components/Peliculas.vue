@@ -4,7 +4,7 @@
     <div class="jumbotron">
       <h2>Peliculas</h2>
       <div v-show="showPeli[0].valor">
-        <Pelicula :pelicula="pelicula" :showPeli="showPeli"/>
+        <Pelicula :pelicula="pelicula" :showPeli="showPeli" :fechas="fechas"/>
       </div>
       <br>
       <div class="d-inline" v-for="(pelicula,index) in $store.state.peliculas" :key="index">
@@ -31,13 +31,26 @@
       return {
         showPeli: [{valor: false}],
         pelicula: {},
+        fechas: [],
       }
     },
     methods: {
       mostrarPeli(pShow){
         this.showPeli[0].valor = true
         this.pelicula = pShow
+        this.getFunciones(this.pelicula._id)
+      },
+
+        async getFunciones(id) {
+        try {
+        let { data: funciones } = await this.axios.get(`${this.$store.state.getFunciones}/${id}`, { 'content-type': 'application/json' })
+        console.log(funciones)
+        let funcionesPorFecha = funciones.map(f => f.fecha)
+        this.fechas = funcionesPorFecha;
       }
+      catch (error) { console.error('Error en postUsuario', error.message) }
+    },
+
     },
     computed: {
       
@@ -50,12 +63,9 @@
 
 <style scoped lang="css">
   img:hover{ 
-     border: 4px solid rgba(17, 14, 19, 0.26);
-    -webkit-transform: scale(1
-    1);
-    transform: scale(1.1);
+     outline: 3px solid rgba(236, 194, 7, 0.959);
+    transform: scale(1.04);
     cursor: pointer;
-    padding:0.2rem;
   }
 
 </style>
