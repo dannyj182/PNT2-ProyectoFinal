@@ -26,11 +26,11 @@
               <a class="nav-link text-light" href="#">Peliculas </a>
             </router-link>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <router-link to="/compra">
               <a class="nav-link text-light" href="#">Comprar</a>
             </router-link>
-          </li>
+          </li> -->
           <li class="nav-item">
             <router-link to="/ticket">
               <a class="nav-link text-light" href="#">Tickets</a>
@@ -39,6 +39,10 @@
       
           <li class="nav-item ">
             <a class="nav-link " href="#" @click=logout()>LogOut</a>
+          </li>
+
+          <li  class="nav-item ">
+            <a class="nav-link" >Perfil Usuario </a>
           </li>
       
         </ul>
@@ -49,11 +53,11 @@
               <a class="nav-link text-light" href="#">Peliculas </a>
             </router-link>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <router-link to="/compra">
               <a class="nav-link text-light" href="#">Comprar</a>
             </router-link>
-          </li>
+          </li> -->
           <li class="nav-item">
             <router-link to="/ticket">
               <a class="nav-link text-light" href="#">Tickets</a>
@@ -68,6 +72,11 @@
           <li class="nav-item ">
             <a class="nav-link " href="#" @click=logout()>LogOut</a>
           </li>
+
+          <li  class="nav-item ">
+            <a class="nav-link" >Perfil Administrador </a>
+          </li>
+
         </ul>
 
         </div>
@@ -100,4 +109,5 @@ export default {
     color: rgb(243, 220, 12) !important;
     text-decoration: none;
   }
+
 </style>
