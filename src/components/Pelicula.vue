@@ -9,9 +9,9 @@
         <p>Director: {{ pelicula.director }}</p>
         <p>Duración: <i><u>{{ pelicula.duracion }}min</u></i></p>
         <p>Clasificación: {{ pelicula.clasificacion }}</p>
-        <p>Precio: {{ pelicula.precio }}</p>
-        <button class="btn btn-warning" @click="cerrar()">Cerrar</button>
-        <button class="btn btn-warning ml-2" @click="verFunciones()">Funciones</button>
+        <p>Precio: $<i>{{ pelicula.precio }}</i></p>
+        <button class="btn btn-info" @click="cerrar()">Cerrar</button>
+        <button class="btn btn-info ml-2" @click="verFunciones()">Funciones</button>
       </div>
       <div class="media-body ml-2">
         <p>{{pelicula.sinopsis}}</p>
@@ -48,8 +48,6 @@
         console.log(id)
          this.funciones = true
       },
-
-  
 
     },
     

@@ -40,6 +40,10 @@
           <li class="nav-item ">
             <a class="nav-link " href="#" @click=logout()>LogOut</a>
           </li>
+
+          <li  class="nav-item ">
+            <a class="nav-link" >Perfil Usuario </a>
+          </li>
       
         </ul>
 
@@ -68,6 +72,11 @@
           <li class="nav-item ">
             <a class="nav-link " href="#" @click=logout()>LogOut</a>
           </li>
+
+          <li  class="nav-item ">
+            <a class="nav-link" >Perfil Administrador </a>
+          </li>
+
         </ul>
 
         </div>
@@ -100,4 +109,5 @@ export default {
     color: rgb(243, 220, 12) !important;
     text-decoration: none;
   }
+
 </style>

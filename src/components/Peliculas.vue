@@ -5,11 +5,15 @@
       <h2>Peliculas</h2>
       <div v-show="showPeli[0].valor">
         <Pelicula :pelicula="pelicula" :showPeli="showPeli" :fechas="fechas"/>
+          <button class="btn btn-danger ml-2" @click="comprar(pelicula)">Comprar</button>
       </div>
+      
       <br>
       <div class="d-inline" v-for="(pelicula,index) in $store.state.peliculas" :key="index">
+        
         <div class="d-inline" @click="mostrarPeli(pelicula)">
           <img :src="pelicula.imagen" class="m-3" :alt="pelicula.nombre" :style="{ 'border-radius' : '10px' }">
+
         </div>
       </div>
     </div>
@@ -32,6 +36,7 @@
         showPeli: [{valor: false}],
         pelicula: {},
         fechas: [],
+        pelisCompras: [],
       }
     },
     methods: {
@@ -49,7 +54,23 @@
         this.fechas = funcionesPorFecha;
       }
       catch (error) { console.error('Error en postUsuario', error.message) }
-    },
+      },
+
+     async comprar(pelicula) {
+
+        try {
+          let { data : peliculas } = await this.axios.put(this.$store.state.updateComprarPeli, pelicula, { 'content-type' : 'application/json' })
+          this.pelisCompras = peliculas
+          if(peliculas!=null){
+            this.$router.push('/ticket')
+          }
+          
+        } catch (error) {
+          console.log('error en el comprar ' + error);
+        }
+      },
+
+
 
     },
     computed: {
