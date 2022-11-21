@@ -2,7 +2,7 @@
 
   <div id="jb1" class="jumbotron">
     
-  <h2>Formulario</h2>
+  <h2>Agregar Nueva Pelicula</h2>
     <hr />
 
     <table class="tablaPeli">
