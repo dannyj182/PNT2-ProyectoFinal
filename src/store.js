@@ -10,14 +10,17 @@ export default new Vuex.Store({
         failUser: false,
         currentUser: null,
         peliculas: [],
+        idUser: null,
         getFunciones: 'http://localhost:8080/cineort/funciones/obtenerPorPelicula',
         getPelis: 'http://localhost:8080/cineort/peliculas/',
+        getUltimo: 'http://localhost:8080/cineort/tickets/ultimoticket',
         postPeli: 'http://localhost:8080/cineort/peliculas/',
         putPeli: 'http://localhost:8080/cineort/peliculas/',
         deletePeli: 'http://localhost:8080/cineort/peliculas/',
         postUsuarios: 'http://localhost:8080/cineort/usuarios/',
         validateUser: 'http://localhost:8080/cineort/usuarios/validar/',
         validateAdmin: 'http://localhost:8080/cineort/usuarios/validarAdmin/',
+        updateComprarPeli: 'http://localhost:8080/cineort/usuarios/comprar'
     },
     actions : {
        desloguearse({commit}){
@@ -56,16 +59,19 @@ export default new Vuex.Store({
             state.estaLogueado = false
             state.failUser = false
             state.currentUser = null
+            state.idUser = null
         },
         loguearse(state, usuario) {
             state.estaLogueado = true
             state.currentUser = usuario
+            state.idUser = usuario._id
         },
 
         loguearseAdmin(state, usuario){
             state.estaLogueado = true
             state.esAdmin =true;
             state.currentUser = usuario; // ?
+            state.idUser = usuario._id
         },
 
         desloguearseAdmin(state){
@@ -73,6 +79,7 @@ export default new Vuex.Store({
             state.esAdmin = false;
             state.failUser =false;
             state.currentUser = null
+            state.idUser = null
         },
         failLogin(state){
             state.failUser = true

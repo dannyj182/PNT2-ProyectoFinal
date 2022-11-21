@@ -100,7 +100,7 @@ export default {
 
     async getUltimo() {
       try {
-        let { data: ticket } = await this.axios(this.ultimo)
+        let { data: ticket } = await this.axios(this.$store.state.getUltimo)
         this.ultimoTicket = ticket
       } catch (error) {
         console.log('error en el getUltimo ' + error);

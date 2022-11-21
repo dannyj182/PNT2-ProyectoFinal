@@ -9,6 +9,7 @@ import Compra from './components/Compra.vue'
 import ABMPelicula from './components/ABMPelicula.vue'
 import Formusuario from './components/FormUsuario.vue'
 
+
 Vue.use(VueRouter)
 
 export const router = new VueRouter({
@@ -21,6 +22,7 @@ export const router = new VueRouter({
         {path : '/comprar' , component: Compra },
         {path : '/abmPelicula' , component: ABMPelicula },
         {path : '/formUsuario' , component: Formusuario },
+        {path : '/compra' , component: Compra },
     ]
 
 })
