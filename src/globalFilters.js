@@ -1,16 +1,8 @@
 import Vue from 'vue'
 
-const miMixinGlobal = {
-    methods:{
 
-    },
 
-    computed: {
-        
-    }
-}
-
-Vue.filter('pasarAMayuscula', function(value){
+Vue.filter('pasarAMayusucula', function(value){
     return value.toUpperCase();
 })
 
