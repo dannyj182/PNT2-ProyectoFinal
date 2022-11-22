@@ -7,7 +7,7 @@
       <hr>
       <hr>    
       <div>
-        <h2 class="fondo1">Resumen de Entradas</h2><br>
+        <h2 class="fondo1">{{"Resumen de Entradas" | pasarAMayusucula}}</h2><br>
         <a class="link1" @click="$router.push('/peliculas')">volver a peliculas</a><br><br>
         <a class="link2" href="/">Inicio | LogOut</a>
       </div>

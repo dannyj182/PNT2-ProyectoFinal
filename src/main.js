@@ -14,10 +14,16 @@ import "./bootstrap"
 import {router} from "./router"
 
 /* -------------- VUEX --------------- */
-//https://vuex.vuejs.org/#what-is-a-state-management-pattern
-//Instalación: npm i vuex@3
 import store from './store'
 
+/* -------------- GlobalMixins --------------- */
+import './globalMixins'
+
+/* -------------- GlobalFilters --------------- */
+import './globalFilters'
+
+
+/* -------------- axios --------------- */
 import './axios'
 
 

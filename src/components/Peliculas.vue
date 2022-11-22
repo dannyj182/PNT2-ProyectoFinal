@@ -2,7 +2,7 @@
   <section>
     <Carrusel/><hr>
     <div id="jb1" align="center" class="jumbotron">
-      <h2>Peliculas</h2>
+      <h2>{{"Películas" | pasarAMayusucula}}</h2>
       <div v-show="showPeli[0].valor">
         <Pelicula :pelicula="pelicula" :showPeli="showPeli" :fechas="fechas" />
         
@@ -52,8 +52,7 @@
         try {
         let { data: funciones } = await this.axios.get(`${this.$store.state.getFunciones}/${id}`, { 'content-type': 'application/json' })
         console.log(funciones)
-        let funcionesPorFecha = funciones.map(f => f.fecha)
-        this.fechas = funcionesPorFecha;
+        this.fechas = funciones.fecha;
       }
       catch (error) { console.error('Error en postUsuario', error.message) }
       },

@@ -17,17 +17,15 @@
         <div id="jb2" class="jumbotron">
         <p>{{pelicula.sinopsis}}</p>
         <div >
-          <h5>Fechas:</h5>
-          <div id="fecha" class="d-inline" v-for="(f,index) in fechas" :key="index">
-            <span class="p-1 m-2 btn bg-light">{{f}}</span>
+          <h5>Fecha:</h5>
+          <div id="fecha" class="d-inline" >
+            <span class="p-1 m-2 btn bg-dark text-light">{{fechas}}</span>
           </div>
         </div>
 
       </div>
 
-
         <button class="btn btn-info" @click="cerrar()">Cerrar</button>
-        <button class="btn btn-info ml-2" @click="verFunciones()">Funciones</button>
       </div>
      
     
@@ -51,10 +49,6 @@
       cerrar(){
         this.showPeli.forEach(item => item.valor = false);
       },
-      verFunciones(id){
-        console.log(id)
-         this.funciones = true
-      },
 
     },
     
@@ -75,11 +69,6 @@
   background-color: rgba(240, 248, 255, 0.897);
 }
 
-#fecha{
-  border-radius: 1px;
-  background-color: rgb(51, 51, 51);
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
+
 
 </style>

@@ -2,7 +2,8 @@
 
   <div id="jb1" class="jumbotron">
     
-  <h2>Agregar Nueva Pelicula</h2>
+  <h2 v-if="crear">{{'agregar Nueva Pelicula' | pasarAMayusucula}}</h2>
+  <h2 v-else>{{'editar Pelicula' | pasarAMayusucula}}</h2>
     <hr />
 
     <table class="tablaPeli">
