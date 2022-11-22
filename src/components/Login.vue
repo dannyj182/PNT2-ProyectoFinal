@@ -112,6 +112,7 @@ export default {
 
 
     getRandom(){
+      // agregar mas 
      return Math.floor(Math.random() * 20);
     }
   },
