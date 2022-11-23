@@ -72,6 +72,7 @@
         </ul>
 
         </div>
+                <p class="text-right text-warning pt-3 text-uppercase " >  {{ mostrarTipoDePerfil }}</p>
     </nav>
   </section>
 </template>
