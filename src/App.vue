@@ -1,14 +1,11 @@
 <template>
-  <div id ="app" class = "container-fluid mt-3">
-    
-    <div class="jumbotron">
-      <div class="perfil" align="right">
-        {{ mostrarTipoDePerfil }}
-    </div>
+  <div >
+  
+
       <Navbar/>
       <router-view></router-view>
       <Footer/>
-    </div>
+
     
   </div>
 </template>
