@@ -73,17 +73,11 @@ export default {
     async iniciarSesion() {
       const user = { ...this.formData }
       const usuario = await this.validarUsuario(user)
-      if(usuario) {
-        const admin = await this.validarAdmin(user)
-        if(admin){
-          this.$store.dispatch('loguearseAdmin', usuario)
-        }
-        else{
-          this.$store.dispatch('loguearse', usuario)
-        }
-        
+       if(usuario) {
+          usuario.isAdmin? this.loguearseAdm(usuario) : this.loguearse(usuario)  // con mixin
         alert('Bienvenido/a  ' + usuario.nombre)
-        this.$router.push('/peliculas')
+        // this.$router.push('/peliculas')
+        this.volverPeliculas()
         }
       else this.$store.dispatch('failLogin')
       this.limpiarForm()
@@ -95,15 +89,6 @@ export default {
         }
         catch(error) { console.error('Error en validarUsuario', error.message) }
     },
-
-    async validarAdmin(user) {
-        try {
-          let { data : usuario } =  await this.axios.post(this.$store.state.validateAdmin, user, { 'content-type' : 'application/json' })
-          return usuario
-        }
-        catch(error) { console.error('Error en validarUsuario', error.message) }
-    },
-
 
     limpiarForm() {
       this.formData = this.getInitialData();

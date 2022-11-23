@@ -1,7 +1,6 @@
 import Vue from 'vue'
 
 
-
 Vue.filter('pasarAMayusucula', function(value){
     return value.toUpperCase();
 })

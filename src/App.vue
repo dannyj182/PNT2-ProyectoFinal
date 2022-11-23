@@ -1,6 +1,10 @@
 <template>
   <div id ="app" class = "container-fluid mt-3">
+    
     <div class="jumbotron">
+      <div class="perfil" align="right">
+        {{ mostrarTipoDePerfil }}
+    </div>
       <Navbar/>
       <router-view></router-view>
       <Footer/>
@@ -49,6 +53,11 @@ export default {
 
   #app {
     font-family: 'Poppins', sans-serif;
+  }
+
+  .perfil{
+    font-size: larger;
+    color: crimson;
   }
   </style>
 s

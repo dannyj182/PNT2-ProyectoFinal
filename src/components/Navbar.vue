@@ -26,11 +26,7 @@
               <a class="nav-link text-light" href="#">Peliculas </a>
             </router-link>
           </li>
-          <!-- <li class="nav-item">
-            <router-link to="/compra">
-              <a class="nav-link text-light" href="#">Comprar</a>
-            </router-link>
-          </li> -->
+
           <li class="nav-item">
             <router-link to="/ticket">
               <a class="nav-link text-light" href="#">Tickets</a>
@@ -38,12 +34,12 @@
           </li>
       
           <li class="nav-item ">
-            <a class="nav-link " href="#" @click=logout()>LogOut</a>
+            <a class="nav-link " href="#" @click=desloguearse()>LogOut</a>
           </li>
 
-          <li  class="nav-item ">
+          <!-- <li  class="nav-item ">
             <a class="nav-link" >Perfil Usuario </a>
-          </li>
+          </li> -->
       
         </ul>
 
@@ -53,11 +49,7 @@
               <a class="nav-link text-light" href="#">Peliculas </a>
             </router-link>
           </li>
-          <!-- <li class="nav-item">
-            <router-link to="/compra">
-              <a class="nav-link text-light" href="#">Comprar</a>
-            </router-link>
-          </li> -->
+
           <li class="nav-item">
             <router-link to="/ticket">
               <a class="nav-link text-light" href="#">Tickets</a>
@@ -70,12 +62,12 @@
           </li>
       
           <li class="nav-item ">
-            <a class="nav-link " href="#" @click=logout()>LogOut</a>
+            <a class="nav-link " href="#" @click=desloguearse()>LogOut</a>
           </li>
 
-          <li  class="nav-item ">
+          <!-- <li  class="nav-item ">
             <a class="nav-link" >Perfil Administrador </a>
-          </li>
+          </li> -->
 
         </ul>
 
@@ -93,12 +85,7 @@ export default {
     return {};
   },
   methods: {
-    logout(){
-      alert('Le esperamos nuevamente')
-       this.$store.dispatch('desloguearse')
-       this.$store.dispatch('desloguearseAdmin')
-       this.$router.push('/')
-    }
+
   },
   computed: {},
 };
