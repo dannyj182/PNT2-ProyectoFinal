@@ -8,8 +8,8 @@
       <hr>    
       <div>
         <h2 class="fondo1">{{"Resumen de Entradas" | pasarAMayusucula}}</h2><br>
-        <a class="link1" @click="$router.push('/peliculas')">volver a peliculas</a><br><br>
-        <a class="link2" href="/">Inicio | LogOut</a>
+        <a class="link1" @click=volverPeliculas()>volver a peliculas</a><br><br>
+        <a class="link2" @click="desloguearse()">Inicio</a>  
       </div>
     <hr>
       <hr>

@@ -64,6 +64,7 @@
           const compra = {
             "_id": this.$store.state.idUser,
             "peliculas": {
+              "_id":pelicula._id,
               "nombre": pelicula.nombre,
               "genero": pelicula.genero,
               "director": pelicula.director,
