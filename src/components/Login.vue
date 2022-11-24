@@ -127,7 +127,7 @@ export default {
 
 
 section{
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+  font-family: Verdana, Geneva, Tahoma, sans-serif
 }
 
 #btn{

@@ -70,6 +70,12 @@
 </script>
 
 <style scoped lang="css">
+
+section{
+  font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+
   .jumbotron {
     background-color: teal;
     color: white;

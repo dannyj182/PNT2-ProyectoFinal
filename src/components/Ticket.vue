@@ -47,8 +47,9 @@ import apiTicket from './apiTicket.vue'
 <style scoped lang="css">
 
 section{
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+  font-family: Verdana, Geneva, Tahoma, sans-serif
 }
+
 
   h2{
     /* background-color: rgba(97, 76, 8, 0.849); */
@@ -73,6 +74,7 @@ section{
   .link2{
     animation: none;
     color: antiquewhite;
+    cursor: pointer;
   }
   .fondo1{
     background-color: black;

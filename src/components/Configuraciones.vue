@@ -52,6 +52,10 @@
 <style scoped lang="css">
   
 
+section{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 
   .tabla {
     margin: 0 auto;
@@ -63,9 +67,9 @@
 }
 
 th {
-    font-size: medium;
+    font-size: large;
     color: rgba(255, 255, 255, 0.74);
-    padding: 2px;
+    padding: 1px;
     text-align: center;
 }
 

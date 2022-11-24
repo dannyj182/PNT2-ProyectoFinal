@@ -327,11 +327,14 @@ export default {
 </script>
 
 <style scoped lang="css">
+section{
+  font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+
 label{
   font-size: large;
-  font-family: 'Montserrat', sans-serif;
-  /* color: #750a06;
-   */
+  /* font-family: 'Montserrat', sans-serif; */
    color: antiquewhite;
   background-color: rgba(31, 31, 31, 0.596);
   padding-right: 60px;

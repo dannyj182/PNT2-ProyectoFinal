@@ -1,4 +1,5 @@
 <template>
+  <section>
   <div>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -21,6 +22,7 @@
         </a>
     </div>
   </div>
+</section>
 </template>
 
 <script>
@@ -49,4 +51,9 @@ export default {
 </script>
 
 <style scoped>
+section{
+  font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+
 </style>

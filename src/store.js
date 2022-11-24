@@ -6,6 +6,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
     state : {
         estaLogueado : false,
+        usuarioActual: null,
         esAdmin: false,
         failUser: false,
         currentUser: null,
@@ -14,6 +15,7 @@ export default new Vuex.Store({
         getFunciones: 'http://localhost:8080/cineort/funciones/obtenerPorPelicula',
         getPelis: 'http://localhost:8080/cineort/peliculas/',
         getUltimo: 'http://localhost:8080/cineort/tickets/ultimoticket',
+        getTickets: 'http://localhost:8080/cineort/tickets',
         postPeli: 'http://localhost:8080/cineort/peliculas/',
         putPeli: 'http://localhost:8080/cineort/peliculas/',
         deletePeli: 'http://localhost:8080/cineort/peliculas/',
@@ -21,8 +23,8 @@ export default new Vuex.Store({
         validateUser: 'http://localhost:8080/cineort/usuarios/validar/',
         validateAdmin: 'http://localhost:8080/cineort/usuarios/validarAdmin/',
         updateComprarPeli: 'http://localhost:8080/cineort/usuarios/comprar',
-        getPeliculaPorId: 'http://localhost:8080/cineort/peliculas',
-        
+        getPeliculaPorId: 'http://localhost:8080/cineort/peliculas/obtenerpeli',
+
         getFuncionesMas: 'http://localhost:8080/cineort/funciones/masVendida',
         getFuncionesMenos: 'http://localhost:8080/cineort/funciones/menosVendida',
         getPeliculaPrecioCara: 'http://localhost:8080/cineort/peliculas/precio/cara',
@@ -64,18 +66,21 @@ export default new Vuex.Store({
     },
     mutations : {
         desloguearse(state) {
+            state.usuarioActual = null,
             state.estaLogueado = false
             state.failUser = false
             state.currentUser = null
             state.idUser = null
         },
         loguearse(state, usuario) {
+            state.usuarioActual = usuario
             state.estaLogueado = true
             state.currentUser = usuario
             state.idUser = usuario._id
         },
 
         loguearseAdmin(state, usuario){
+            state.usuarioActual = usuario
             state.estaLogueado = true
             state.esAdmin =true;
             state.currentUser = usuario; // ?

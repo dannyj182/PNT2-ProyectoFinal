@@ -53,19 +53,6 @@
       }
     },
 
-    // async putPelicula() {
-
-    //   try {
-    //     let pelicula = { ...this.formData }
-    //     let { data : res } = await this.axios.put(this.$store.state.updateComprarPeli + this.$store.state.idUser, pelicula, { 'content-type' : 'application/json' })
-    //     if(res.modifiedCount) this.$store.dispatch('updatePelicula', { ...this.formData })
-    //      this.formData = this.getInitialData()
-    //       this.formState._reset()
-    //   }
-    //   catch(error) { console.error('Error en editarPelicula', error.message) }        
-    // }
-
-
 
   },
     computed: {

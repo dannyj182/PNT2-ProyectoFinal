@@ -104,8 +104,9 @@
 <style scoped lang="css">
 
 section{
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+  font-family: Verdana, Geneva, Tahoma, sans-serif
 }
+
 
   img:hover{ 
     transition: all 0.4s;
