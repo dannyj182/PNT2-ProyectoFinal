@@ -1,8 +1,6 @@
 <template>
-
+<section>
   <div align="center" id="peli">
-    
-      
       <div id="jb1" class="jumbotron">
 
         <img :src="pelicula.imagen" :alt="pelicula.nombre" :style="{ 'border-radius' : '10px' }"><br><br>
@@ -30,7 +28,7 @@
      
     
   </div>
-
+</section>
 </template>
 
 <script>
@@ -58,7 +56,9 @@
 
 <style scoped lang="css">
 
-
+section{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
 
 #jb1{
   color: antiquewhite;

@@ -163,7 +163,7 @@
     width: 400px; */
     width: 500px;
     margin: 0 auto;
-    background-color: rgba(1, 49, 77, 0.671);
+    background-color: rgba(10, 20, 26, 0.336);
     color: antiquewhite;
 
 }
@@ -174,10 +174,9 @@ h1{
 }
   #jumbotron3 {
   text-align: center;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
   font-size: 1.3rem;
-  color: rgb(1, 49, 77);
-  background-color: rgb(236, 217, 200);
+  background-color: rgba(0, 0, 0, 0.842);
   border-radius: 5px;
 }
 
@@ -187,7 +186,9 @@ hr {
 
 #jumbotron2 {
   color: antiquewhite;
-  background-color: rgb(1, 49, 77);
+  /* background-color: rgb(1, 49, 77); */
+  /* background-image: url('https://images.unsplash.com/photo-1542707661-28405ee527e5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2000&q=80'); */
+  background-image: url('https://images.unsplash.com/photo-1542931415-162aeab4418f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NTV8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=2500&q=60');
 }
 
 td {

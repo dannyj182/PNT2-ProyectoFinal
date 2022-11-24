@@ -1,12 +1,9 @@
 <template>
   <div >
-  
 
       <Navbar/>
       <router-view></router-view>
       <Footer/>
-
-    
   </div>
 </template>
 
@@ -41,6 +38,7 @@ export default {
   h1 {
     color: rgb(85, 30, 57);
   }
+  
 
  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
 

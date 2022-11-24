@@ -15,10 +15,11 @@
       <p> Fecha : {{ ultimoTicket.fecha }}</p>
 
       <div id="desc" class="jumbotron">
-        <!-- <p> {{ultimoTicket.peliculas}}</p> -->
-        <div align="center" v-for="(tick, index) in ultimoTicket.peliculas" v-bind:key="index">
+        <!-- <p> Pelicula comprada: {{this.peliculaEncontrada}}</p> -->
+        <p> Pelicula comprada: {{this.ultimoTicket}}</p>
+        <!-- <div align="center" v-for="(tick, index) in ultimoTicket.peliculas" v-bind:key="index">
           <p>{{ tick }}</p>
-        </div>
+        </div> -->
       </div>
     </div>
     <div v-else>
@@ -86,14 +87,16 @@ export default {
       ultimoTicket: '',
       usuario: [],
       peli: [],
+      peliculaEncontrada:[],
     }
   },
   methods: {
+    
+   async buscarPeliculaPorId(){
 
-    // convertir(dato){
-    //   // return dato.map(elemento => Object.entries(elemento)).join(' ');
-    // },
-
+      let { data: pelicula } = await this.axios(this.$store.state.getPeliculaPorId +'/'+ this.ultimoTicket.idPelicula)
+      this.peliculaEncontrada = pelicula;
+    },
     convertirFecha(fecha) {
       return new Date(fecha).toLocaleString();
     },

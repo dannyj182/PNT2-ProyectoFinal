@@ -20,7 +20,15 @@ export default new Vuex.Store({
         postUsuarios: 'http://localhost:8080/cineort/usuarios/',
         validateUser: 'http://localhost:8080/cineort/usuarios/validar/',
         validateAdmin: 'http://localhost:8080/cineort/usuarios/validarAdmin/',
-        updateComprarPeli: 'http://localhost:8080/cineort/usuarios/comprar'
+        updateComprarPeli: 'http://localhost:8080/cineort/usuarios/comprar',
+        getPeliculaPorId: 'http://localhost:8080/cineort/peliculas',
+        
+        getFuncionesMas: 'http://localhost:8080/cineort/funciones/masVendida',
+        getFuncionesMenos: 'http://localhost:8080/cineort/funciones/menosVendida',
+        getPeliculaPrecioCara: 'http://localhost:8080/cineort/peliculas/precio/cara',
+        getPeliculaPrecioBarata: 'http://localhost:8080/cineort/peliculas/precio/barata',
+        getPeliculaDuracionLarga: 'http://localhost:8080/cineort/peliculas/duracion/larga',
+        getPeliculaDuracionCorta: 'http://localhost:8080/cineort/peliculas/duracion/corta',
     },
     actions : {
        desloguearse({commit}){

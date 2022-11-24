@@ -1,8 +1,5 @@
 <template >
   <section align="center" class="ticket">
-    <div>
-      <h2>Peliculas</h2>
-    </div>
     <div class="jumbotron">
       <hr>
       <hr>    
@@ -48,6 +45,11 @@ import apiTicket from './apiTicket.vue'
 </script>
 
 <style scoped lang="css">
+
+section{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
   h2{
     /* background-color: rgba(97, 76, 8, 0.849); */
     color: antiquewhite;

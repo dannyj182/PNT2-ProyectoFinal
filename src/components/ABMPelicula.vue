@@ -1,5 +1,6 @@
 <template>
-
+  <section>
+<Configuraciones/>
   <div id="jb1" class="jumbotron">
     
   <h2 v-if="crear">{{'agregar Nueva Pelicula' | pasarAMayusucula}}</h2>
@@ -181,13 +182,13 @@
       </th>
     </table>
 
-    <button class="btn btn-warning mb-3" @click="mostrarOcultar()">{{mensaje}}</button>
+    <button class="btn btn-danger mb-3" @click="mostrarOcultar()">{{mensaje}}</button>
 
     <br>
   
     <div v-show="estaMostrando">
       <div class="d-inline" v-for="(pelicula,index) in $store.state.peliculas" :key="index">
-          <div class="media alert alert-danger">
+          <div id="card" class="media alert alert-black">
             <img :src="pelicula.imagen" class="m-2" :alt="pelicula.nombre" :style="{ 'border-radius' : '10px' }">
             <div class="media-body ml-2">
               <p>Nombre: <b>{{ pelicula.nombre }}</b></p>
@@ -196,19 +197,23 @@
               <p>Duración: <i><u>{{ pelicula.duracion }} min</u></i></p>
               <p>Clasificación: {{ pelicula.clasificacion }}</p>
               <p>Precio: {{ pelicula.precio }}</p>
-              <button class="btn btn-warning" @click="editarPeli(pelicula._id)">Editar</button>
-              <button class="btn btn-warning ml-2" @click="deletePelicula(pelicula._id)">Borrar</button>
+              <button class="btn btn-danger" @click="editarPeli(pelicula._id)">Editar</button>
+              <button class="btn btn-danger ml-2" @click="deletePelicula(pelicula._id)">Borrar</button>
             </div>
           </div>
       </div>
     </div>
 </div>
-
+</section>
 </template>
 
 <script>
+import Configuraciones from '../components/Configuraciones.vue'
 export default {
   name: 'formulario-peli',
+  components: {
+    Configuraciones,
+  },
   props: [],
   mounted() {
   },
@@ -323,17 +328,21 @@ export default {
 
 <style scoped lang="css">
 label{
-  font-size: medium;
+  font-size: large;
   font-family: 'Montserrat', sans-serif;
-  color: #750a06;
-  background-color: rgba(255, 255, 255, 0.596);
+  /* color: #750a06;
+   */
+   color: antiquewhite;
+  background-color: rgba(31, 31, 31, 0.596);
   padding-right: 60px;
   padding-left: 60px;
   border-radius: 7px;
 }
 #jb1{
   color: antiquewhite;
-  background-image: url('https://images.unsplash.com/photo-1542396601-dca920ea2807?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTR8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=2500&q=60');
+  /* background-image: url('https://images.unsplash.com/photo-1542396601-dca920ea2807?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTR8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=2500&q=60');
+   */
+   background-image: url('https://images.unsplash.com/photo-1542931415-162aeab4418f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NTV8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=2500&q=60');
   background-color: rgba(32, 32, 32, 0.651);
 }
 #jb2{
@@ -365,5 +374,9 @@ label{
 .foto:hover{
   transition: all 0.9s ease;
   box-shadow: 1px 4px 12px rgb(255, 255, 255);
+}
+
+#card{
+  background-color: rgba(0, 0, 0, 0.856);
 }
 </style>
