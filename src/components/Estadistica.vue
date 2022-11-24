@@ -30,7 +30,7 @@
     
           <th>
             <div align="center" id="jb2" class="jumbotron">
-              <h2>Pelicula mas Barata</h2>
+              <h2>Pelicula mas barata</h2>
               <img :src="peliculasMasBaratas.imagen" class="m-3" :style="{ 'border-radius': '10px' }">
               <p> Nombre {{peliculasMasBaratas.nombre}}</p>
               <p> Duracion {{peliculasMasBaratas.duracion}}</p>
@@ -39,7 +39,7 @@
           </th>
           <th>
             <div align="center" id="jb2" class="jumbotron">
-              <h2>Pelicula con mayor duracion</h2>
+              <h2>Pelicula con mayor duración</h2>
               <img :src="peliculasMasLargas.imagen" class="m-3" :style="{ 'border-radius': '10px' }">
               <p> Nombre {{peliculasMasLargas.nombre}}</p>
               <p> Duracion {{peliculasMasLargas.duracion}}</p>
@@ -48,7 +48,7 @@
           </th>
           <th>
             <div align="center" id="jb2" class="jumbotron">
-              <h2>Pelicula con menor duracion</h2>
+              <h2>Pelicula con menor duración</h2>
               <img :src="peliculasMasCortas.imagen" class="m-3" :style="{ 'border-radius': '10px' }">
               <p> Nombre {{peliculasMasCortas.nombre}}</p>
               <p> Duracion {{peliculasMasCortas.duracion}}</p>
@@ -66,7 +66,7 @@
         <div id="jb3" class="jumbotron">
     
     <div>
-      <h2>Funcion mas vendidas</h2>
+      <h2>Funcion mas vendida</h2>
       <p> Numero : {{funcionesMasVendidas._id}}</p>
       <p> Capacidad {{funcionesMasVendidas.capacidad}}</p>
       <p> Fecha {{convertirFecha(funcionesMasVendidas.fecha)}}</p>
@@ -78,7 +78,7 @@
 
 
     <div>
-      <h2>Funcion menos vendidas</h2>
+      <h2>Funcion menos vendida</h2>
       <p> Numero : {{funcionesMenosVendidas._id}}</p>
       <p> Capacidad {{funcionesMenosVendidas.capacidad}}</p>
       <p> Fecha {{convertirFecha(funcionesMenosVendidas.fecha)}}</p>
