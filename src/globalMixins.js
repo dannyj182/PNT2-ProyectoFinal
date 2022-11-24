@@ -19,6 +19,20 @@ const miMixinGlobal = {
 
         volverPeliculas(){
             this.$router.push('/peliculas')
+        },
+
+        irAdmPelis(){
+            this.$router.push('/abmPelicula')
+        },
+        irEstadistica(){
+            this.$router.push('/estadistica')
+        },
+        irPerfil(){
+            this.$router.push('/perfil')
+        },
+
+        irForm(){
+            this.$router.push('/formUsuario')
         }
     },
 

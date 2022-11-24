@@ -1,4 +1,5 @@
 <template>
+  <section>
   <div>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -21,6 +22,7 @@
         </a>
     </div>
   </div>
+</section>
 </template>
 
 <script>
@@ -29,7 +31,7 @@ export default {
   data () {
       return {
          imgPelis: [
-          {id: 0, img: 'https://static.cinemarkhoyts.com.ar/Images/Highlights/547.png'},
+          {id: 0, img: 'https://static.cinemarkhoyts.com.ar/Images/Highlights/542.png'},
           {id: 1, img: 'https://static.cinemarkhoyts.com.ar/Images/Highlights/531.png'},
           {id: 2, img: 'https://static.cinemarkhoyts.com.ar/Images/Highlights/535.png'},
           {id: 3, img: 'https://static.cinemarkhoyts.com.ar/Images/Highlights/536.png'},
@@ -37,7 +39,7 @@ export default {
           {id: 5, img: 'https://static.cinemarkhoyts.com.ar/Images/Highlights/539.png'},
           {id: 6, img: 'https://static.cinemarkhoyts.com.ar/Images/Highlights/541.png'},
           {id: 7, img: 'https://static.cinemarkhoyts.com.ar/Images/Highlights/542.png'},
-          {id: 8, img: 'https://static.cinemarkhoyts.com.ar/Images/Highlights/543.png'},
+          {id: 8, img: 'https://static.cinemarkhoyts.com.ar/Images/Highlights/547.png'},
           {id: 9, img: 'https://static.cinemarkhoyts.com.ar/Images/Highlights/545.png'},
          ]
       }
@@ -49,4 +51,9 @@ export default {
 </script>
 
 <style scoped>
+section{
+  font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+
 </style>

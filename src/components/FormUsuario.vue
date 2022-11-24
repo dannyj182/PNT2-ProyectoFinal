@@ -1,5 +1,5 @@
 <template>
-
+<section>
      <div class="jumbotron">
 
       <div align="center" id="jumbotron2" class="jumbotron">
@@ -14,7 +14,7 @@
 
               <label for="nombre">Nombre</label>
               <input type="text" id="nombre" class="form-control" autocomplete="off" v-model.trim="formData.nombre"
-                name="nombre" required :minlength="nombreMinLength" :maxlength="nombreMaxLength" no-espacios>
+                name="nombre" required :minlength="nombreMinLength" :maxlength="nombreMaxLength" no-espacios placeholder="Ingrese su Nombre">
 
 
               <field-messages name="nombre" show="$dirty">
@@ -28,7 +28,7 @@
 
             <validate tag="div">
               <label for="dni">DNI</label>
-              <input type="number" id="dni" class="form-control" autocomplete="off" v-model.number="formData.dni" name="dni" required>
+              <input type="number" id="dni" class="form-control" autocomplete="off" v-model.number="formData.dni" name="dni" required placeholder="Ingrese su Dni">
 
               <field-messages name="dni" show="$dirty">
                 <div class="font">Dni confirmado</div>
@@ -42,7 +42,7 @@
             <validate tag="div">
 
               <label for="edad">Edad</label>
-              <input type="number" id="edad" class="form-control" autocomplete="off" v-model.trim="formData.edad" name="edad" required>
+              <input type="number" id="edad" class="form-control" autocomplete="off" v-model.trim="formData.edad" name="edad" required placeholder="Ingrese su edad">
               <field-messages name="edad" show="$dirty">
                 <div class="font">Acceso concedido</div>
                 <div slot="required" class="alert alert-danger mt-1">Campo edad requerido</div>
@@ -53,7 +53,7 @@
 
             <validate tag="div">
           <label for="email">Email</label>
-          <input type="email" id="email" class="form-control" autocomplete="off" v-model.trim="formData.email" name="email" required>
+          <input type="email" id="email" class="form-control" autocomplete="off" v-model.trim="formData.email" name="email" required placeholder="Ingrese un email">
 
           <field-messages name="email" show="$dirty">
             <div class="font">Acceso concedido</div>
@@ -67,10 +67,12 @@
           <validate tag="div">
 
             <label for="password">Password</label>
-            <input type="password" id="password" class="form-control" autocomplete="off" v-model.trim="formData.password" name="password" required>
+            <input type="password" id="password" class="form-control" autocomplete="off" v-model.trim="formData.password" name="password" required :minlength="contraseniaMinLength" :maxlength="contraseniaMaxLength" placeholder="Ingrese una password con mas de 6 caracteres">
 
             <field-messages name="password" show="$dirty">
               <div class="font">Acceso concedido</div>
+              <div slot="minLength">La password debe tener mas de {{this.contraseniaMinLength}} caracteres</div>
+              <div slot="maxlength">La password debe tener menos de {{this.contraseniaMaxLength}} caracteres</div>
               <div slot="no-espacios" class="alert alert-danger mt-1">El campo no permite espacios intermedios.</div>
             </field-messages>
 
@@ -85,7 +87,7 @@
 
     </div> 
 
-
+  </section>
 </template>
 
 <script>
@@ -151,19 +153,15 @@
 
 <style scoped lang="css">
 
+section{
+  font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
 
 .form-control{
-  /* margin-top: 12px;
-    border: auto;
-    background-color: #131212;
-    color: rgb(167, 164, 164);
-    border-collapse: collapse;
-    border-radius: 7px;
-    opacity: 0.7;
-    width: 400px; */
     width: 500px;
     margin: 0 auto;
-    background-color: rgba(1, 49, 77, 0.671);
+    background-color: rgba(10, 20, 26, 0.336);
     color: antiquewhite;
 
 }
@@ -174,10 +172,9 @@ h1{
 }
   #jumbotron3 {
   text-align: center;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
   font-size: 1.3rem;
-  color: rgb(1, 49, 77);
-  background-color: rgb(236, 217, 200);
+  background-color: rgba(0, 0, 0, 0.842);
   border-radius: 5px;
 }
 
@@ -187,7 +184,9 @@ hr {
 
 #jumbotron2 {
   color: antiquewhite;
-  background-color: rgb(1, 49, 77);
+  /* background-color: rgb(1, 49, 77); */
+  /* background-image: url('https://images.unsplash.com/photo-1542707661-28405ee527e5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2000&q=80'); */
+  background-image: url('https://images.unsplash.com/photo-1542931415-162aeab4418f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8NTV8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=2500&q=60');
 }
 
 td {

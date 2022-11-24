@@ -46,6 +46,7 @@
         <div class="text-center p-3 " style="background-color: rgba(0, 0, 0, 0.2);">
         © 2022 Copyright:
         <p class="text-white d-inline">Cine Ort - Jimenez, Ortega, Pereyra, Taddeo</p>  <br><br>{{ mostrarHoraActual }} 
+        <p id="easter-egg">Nina</p>
         </div>
         <!-- Copyright -->
     </footer>
@@ -70,11 +71,21 @@
 </script>
 
 <style scoped lang="css">
+
+section{
+  font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+
   .jumbotron {
     background-color: teal;
     color: white;
   }
   hr {
     background-color: #bbb;
+  }
+
+  #easter-egg{
+    color: rgba(0, 0, 0, 0);
   }
 </style>

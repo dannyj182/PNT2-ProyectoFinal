@@ -1,4 +1,5 @@
 <template>
+  <section>
   <div>
     <Carrusel /><br>
     <div v-show="!this.$store.state.estaLogueado">
@@ -44,6 +45,7 @@
       </div>
     </div>
   </div>
+</section>
 </template>
 
 <script>
@@ -74,9 +76,8 @@ export default {
       const user = { ...this.formData }
       const usuario = await this.validarUsuario(user)
        if(usuario) {
-          usuario.isAdmin? this.loguearseAdm(usuario) : this.loguearse(usuario)  // con mixin
-        alert('Bienvenido/a  ' + usuario.nombre)
-        // this.$router.push('/peliculas')
+          usuario.isAdmin? this.loguearseAdm(usuario) : this.loguearse(usuario) 
+          usuario.email=='danielsanchez68@hotmail.com'? alert('Bienvenido Profe Dani, que disfrute nuestro TP') : alert('Bienvenido/a  ' + usuario.nombre);
         this.volverPeliculas()
         }
       else this.$store.dispatch('failLogin')
@@ -124,6 +125,11 @@ export default {
 
 <style scoped>
 
+
+section{
+  font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
 #btn{
   background-color: antiquewhite;
 }
@@ -158,14 +164,7 @@ export default {
   }
 
   .form-control{
-  /* margin-top: 12px;
-    border: auto;
-    background-color: #131212;
-    color: rgb(167, 164, 164);
-    border-collapse: collapse;
-    border-radius: 7px;
-    opacity: 0.7;
-    width: 400px; */
+
     width: 500px;
     background-color: rgba(1, 49, 77, 0);
     color: antiquewhite;

@@ -1,7 +1,6 @@
 <template >
   <section class="src-componentes-navbar">
     <nav class="navbar navbar-expand-md navbar-dark bg-dark d-flex ">
-      
       <router-link v-if="($store.state.estaLogueado)" to="/peliculas">
         <a class="navbar-brand" href="#"> 🎬 Cine ORT</a>
       </router-link>
@@ -57,7 +56,7 @@
           </li>
           <li class="nav-item">
             <router-link to="/abmPelicula">
-              <a class="nav-link text-light" href="#">Administrar Peliculas</a>
+              <a class="nav-link text-light" href="#">Configuraciones</a>
             </router-link>
           </li>
       
@@ -72,7 +71,16 @@
         </ul>
 
         </div>
-                <p class="text-right text-warning pt-3 text-uppercase " >  {{ mostrarTipoDePerfil }}</p>
+                <p class="perfil" >  {{ mostrarTipoDePerfil }} </p>
+                <div v-if="this.$store.state.esAdmin">
+                  <img @click="irPerfil()" src="https://cdn2.iconfinder.com/data/icons/industry-flat-4/340/wrench_gear_repair_mechanic_industry_wheel_machine_fix-45.png" alt="admin">
+                </div>
+                <div v-else-if="this.$store.state.estaLogueado">
+                  <img @click="irPerfil()" src="https://cdn3.iconfinder.com/data/icons/leto-space/64/__astronaut_space_suit-40.png" alt=""> 
+                </div>
+                <div v-else>
+                  <img @click="irForm()" src="https://cdn3.iconfinder.com/data/icons/leto-user-group/64/__acount_profile-40.png" alt=""> 
+                </div>
     </nav>
   </section>
 </template>
@@ -93,9 +101,26 @@ export default {
 </script>
 
 <style scoped lang="css">
+
+section{
+  font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
   li a:hover{
-    color: rgb(243, 220, 12) !important;
+    transition: all 0.5s;
+    /* color: rgb(243, 220, 12) !important; */
+    color: rgb(0, 0, 0)!important;
     text-decoration: none;
+  }
+
+  .perfil{
+    color: antiquewhite;
+    padding-right: 0.5rem;
+    font-size: medium;
+  }
+
+  img{
+    cursor: pointer;
   }
 
 </style>

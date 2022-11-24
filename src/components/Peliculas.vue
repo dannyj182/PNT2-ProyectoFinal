@@ -102,6 +102,12 @@
 </script>
 
 <style scoped lang="css">
+
+section{
+  font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+
   img:hover{ 
     transition: all 0.4s;
      /* outline: 3px solid rgba(236, 194, 7, 0.959); */
