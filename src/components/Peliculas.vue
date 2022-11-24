@@ -6,7 +6,7 @@
       <div v-show="showPeli[0].valor">
         <Pelicula :pelicula="pelicula" :showPeli="showPeli" :fechas="fechas" />
         
-        <button id="comprar" class="btn btn-danger ml-2" @click="comprar(pelicula)">Comprar</button><img class="logo" @click="comprar(pelicula)" src="https://cdn1.iconfinder.com/data/icons/bootstrap/16/cart2-40.png" alt="">
+        <button id="comprar" class="btn btn-danger m-2" @click="comprar(pelicula)">Comprar <i class="bi bi-cart btn text-light "  style="font-size: 1.2rem;" ></i></button>
       
       </div>
       <br>
@@ -106,7 +106,6 @@
 section{
   font-family: Verdana, Geneva, Tahoma, sans-serif
 }
-
 
   img:hover{ 
     transition: all 0.4s;

@@ -197,7 +197,7 @@
               <p>Duración: <i><u>{{ pelicula.duracion }} min</u></i></p>
               <p>Clasificación: {{ pelicula.clasificacion }}</p>
               <p>Precio: {{ pelicula.precio }}</p>
-              <button class="btn btn-danger" @click="editarPeli(pelicula._id)">Editar</button>
+              <button class="btn btn-success" @click="editarPeli(pelicula._id)">Editar</button>
               <button class="btn btn-danger ml-2" @click="deletePelicula(pelicula._id)">Borrar</button>
             </div>
           </div>
