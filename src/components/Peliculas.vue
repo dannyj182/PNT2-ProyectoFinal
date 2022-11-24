@@ -51,7 +51,6 @@
         async getFunciones(id) {
         try {
         let { data: funciones } = await this.axios.get(`${this.$store.state.getFunciones}/${id}`, { 'content-type': 'application/json' })
-        console.log(funciones)
         this.fechas = funciones.fecha;
       }
       catch (error) { console.error('Error en postUsuario', error.message) }

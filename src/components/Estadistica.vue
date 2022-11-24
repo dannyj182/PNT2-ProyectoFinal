@@ -95,7 +95,6 @@
 <script>
 import Configuraciones from '../components/Configuraciones.vue'
   export default  {
-    
     name: 'src-components-estadistica',
     components: {
     Configuraciones,
@@ -115,14 +114,10 @@ import Configuraciones from '../components/Configuraciones.vue'
       }
     },
     methods: {
-      
      /*  convertirFecha(fecha) {
         console.log( fecha)
       return fecha
-    },
- */
-
-
+    },*/
       async getTodo() {
         await this.getFuncionMas(),
         await this.getFuncionMenos()
@@ -131,83 +126,67 @@ import Configuraciones from '../components/Configuraciones.vue'
         await this.getPeliCorta()
         await this.getPeliLarga()
       },
-
-    async getFuncionMas() {
-      try {
-        let { data: funcion } = await this.axios(this.$store.state.getFuncionesMas)
-        this.funcionesMasVendidas = funcion;
-        console.log(this.funcionesMasVendidas)
-      } catch (error) {
-        console.log('error en el getFuncionMas ' + error);
-      }
-    },
-
-
-    async getFuncionMenos() {
-      try {
-        let { data: funcion } = await this.axios(this.$store.state.getFuncionesMenos)
-        this.funcionesMenosVendidas = funcion;
-        console.log(this.funcionesMenosVendidas)
-      } catch (error) {
-        console.log('error en el getFuncionMenos ' + error);
-      }
-    },
-
-    async getPeliBarata() {
-      try {
-        let { data: pelicula } = await this.axios(this.$store.state.getPeliculaPrecioBarata)
-        this.peliculasMasBaratas = pelicula;
-      } catch (error) {
-        console.log('error en el getPeliBarata ' + error);
-      }
-    },
-
-    async getPeliCara() {
-      try {
-        let { data: pelicula } = await this.axios(this.$store.state.getPeliculaPrecioCara)
-        this.peliculasMasCaras = pelicula;
-      } catch (error) {
-        console.log('error en el getPeliCara ' + error);
-      }
-    },
-
-    async getPeliLarga() {
-      try {
-        let { data: pelicula } = await this.axios(this.$store.state.getPeliculaDuracionLarga)
-        this.peliculasMasLargas = pelicula;
-      } catch (error) {
-        console.log('error en el getPeliLarga ' + error);
-      }
-    },
-
-    async getPeliCorta() {
-      try {
-        let { data: pelicula } = await this.axios(this.$store.state.getPeliculaDuracionCorta)
-        this.peliculasMasCortas = pelicula;
-      } catch (error) {
-        console.log('error en el getPeliLarga ' + error);
-      }
-    },
-
-
+      async getFuncionMas() {
+        try {
+          let { data: funcion } = await this.axios(this.$store.state.getFuncionesMas)
+          this.funcionesMasVendidas = funcion;
+        } catch (error) {
+          console.log('error en el getFuncionMas ' + error);
+        }
+      },
+      async getFuncionMenos() {
+        try {
+          let { data: funcion } = await this.axios(this.$store.state.getFuncionesMenos)
+          this.funcionesMenosVendidas = funcion;
+        } catch (error) {
+          console.log('error en el getFuncionMenos ' + error);
+        }
+      },
+      async getPeliBarata() {
+        try {
+          let { data: pelicula } = await this.axios(this.$store.state.getPeliculaPrecioBarata)
+          this.peliculasMasBaratas = pelicula;
+        } catch (error) {
+          console.log('error en el getPeliBarata ' + error);
+        }
+      },
+      async getPeliCara() {
+        try {
+          let { data: pelicula } = await this.axios(this.$store.state.getPeliculaPrecioCara)
+          this.peliculasMasCaras = pelicula;
+        } catch (error) {
+          console.log('error en el getPeliCara ' + error);
+        }
+      },
+      async getPeliLarga() {
+        try {
+          let { data: pelicula } = await this.axios(this.$store.state.getPeliculaDuracionLarga)
+          this.peliculasMasLargas = pelicula;
+        } catch (error) {
+          console.log('error en el getPeliLarga ' + error);
+        }
+      },
+      async getPeliCorta() {
+        try {
+          let { data: pelicula } = await this.axios(this.$store.state.getPeliculaDuracionCorta)
+          this.peliculasMasCortas = pelicula;
+        } catch (error) {
+          console.log('error en el getPeliLarga ' + error);
+        }
+      },
     },
     computed: {
-
        obtenerTodo(){
        return this.getTodo()
       },
     }
 }
-
-
 </script>
 
 <style scoped lang="css">
-
 section{
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
-
 hr{
   background-color: rgba(240, 248, 255, 0.24);
 }
@@ -217,29 +196,24 @@ hr{
 .ocultar{
   color: rgba(0, 0, 0, 0);
 }
-
 img{
   width: 150px;
 }
 h1{
   color: antiquewhite;
 }
-
 th:hover{
   transition: all 0.9s;
   color: aliceblue;
   background-color: rgba(255, 255, 255, 0.267);
-  
 }
 #img2{
   width: 100px;
 }
 #jb1{
-  
   background-image: url('https://images.unsplash.com/photo-1668455199701-284281127a87?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjEyfHxmb25kbyUyMGRlJTIwcGFudGFsbGElMjBtYWN8ZW58MHx8MHx8&auto=format&fit=crop&w=3000&q=60');
   /* background-image: url('https://images.unsplash.com/photo-1650473395449-5ad9037cc318?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTc2fHxmb25kbyUyMGRlJTIwcGFudGFsbGElMjBtYWN8ZW58MHx8MHx8&auto=format&fit=crop&w=2000&q=60'); */
 }
-
 #jb2{
   background-color: rgba(255, 255, 255, 0.034);
   color: antiquewhite;
