@@ -5,7 +5,6 @@ import VueRouter from "vue-router"
 import Inicio from './components/Login.vue';
 import Peliculas from './components/Peliculas.vue'
 import Ticket from './components/Ticket.vue'
-import Compra from './components/Compra.vue'
 import ABMPelicula from './components/ABMPelicula.vue'
 import Formusuario from './components/FormUsuario.vue'
 import Perfil from './components/Perfil.vue'
@@ -22,10 +21,8 @@ export const router = new VueRouter({
         {path : '/login' , component: Inicio },
         {path : '/peliculas' , component: Peliculas },
         {path : '/ticket' , component: Ticket },
-        {path : '/comprar' , component: Compra },
         {path : '/abmPelicula' , component: ABMPelicula },
         {path : '/formUsuario' , component: Formusuario },
-        {path : '/compra' , component: Compra },
         {path : '/perfil' , component: Perfil },
         {path : '/estadistica' , component: Estadistica },
         {path : '/configuraciones' , component: Configuraciones},

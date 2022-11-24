@@ -24,6 +24,7 @@ export default new Vuex.Store({
         validateAdmin: 'http://localhost:8080/cineort/usuarios/validarAdmin/',
         updateComprarPeli: 'http://localhost:8080/cineort/usuarios/comprar',
         getPeliculaPorId: 'http://localhost:8080/cineort/peliculas/obtenerpeli',
+        updateUsuario: 'http://localhost:8080/cineort/usuarios/editar',
 
         getFuncionesMas: 'http://localhost:8080/cineort/funciones/masVendida',
         getFuncionesMenos: 'http://localhost:8080/cineort/funciones/menosVendida',

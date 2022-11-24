@@ -21,7 +21,7 @@
       <div v-for="(peli, index) in pelicula" :key="index">
         <div v-if="peli._id == ultimoTicket.idPelicula">
           <p>Nombre : {{peli.nombre}}</p>
-          <p>Precio: {{peli.precio}}</p>
+          <p>Precio: ${{peli.precio}}</p>
           <p>Duracion : {{peli.duracion}}</p>
           <img :src="peli.imagen">
         </div>
