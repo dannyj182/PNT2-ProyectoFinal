@@ -119,8 +119,8 @@
         mensaje: 'Editar Perfil',
         estaMostrando: false,
         usuario: null,
-
-       
+        nombreMinLength:3,
+        nombreMaxLength:12,
       }
     },
     methods: {
