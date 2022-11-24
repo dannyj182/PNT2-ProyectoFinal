@@ -40,14 +40,14 @@ export default {
   }
   
 
- @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;400;500&display=swap');;
 
   html, body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Raleway', sans-serif;
   }
 
   #app {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Raleway', sans-serif;
   }
 
   .perfil{
