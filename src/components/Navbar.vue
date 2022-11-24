@@ -2,7 +2,7 @@
   <section class="src-componentes-navbar">
     <nav class="navbar navbar-expand-md navbar-dark bg-dark d-flex ">
       <router-link v-if="($store.state.estaLogueado)" to="/peliculas">
-        <a class="navbar-brand" href="#"> 🎬 Cine ORT</a>
+        <a class="pt-1 navbar-brand" href="#"> 🎬 Cine ORT</a>
       </router-link>
       <router-link v-else to="/">
         <a class="navbar-brand" href="#"> 🎬 Cine ORT</a>
@@ -71,7 +71,7 @@
         </ul>
 
         </div>
-                <p class="perfil" >  {{ mostrarTipoDePerfil }} </p>
+                <p class="perfil mt-3" >  {{ mostrarTipoDePerfil }} </p>
                 <div v-if="this.$store.state.esAdmin">
                   <img @click="irPerfil()" src="https://cdn2.iconfinder.com/data/icons/industry-flat-4/340/wrench_gear_repair_mechanic_industry_wheel_machine_fix-45.png" alt="admin">
                 </div>

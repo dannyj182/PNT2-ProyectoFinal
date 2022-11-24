@@ -69,7 +69,7 @@
       <h2>Funcion mas vendida</h2>
       <p> Numero : {{funcionesMasVendidas._id}}</p>
       <p> Capacidad {{funcionesMasVendidas.capacidad}}</p>
-      <p> Fecha {{convertirFecha(funcionesMasVendidas.fecha)}}</p>
+      <p> Fecha {{funcionesMasVendidas.fecha}}</p>
     </div>
 
   </div>
@@ -81,7 +81,7 @@
       <h2>Funcion menos vendida</h2>
       <p> Numero : {{funcionesMenosVendidas._id}}</p>
       <p> Capacidad {{funcionesMenosVendidas.capacidad}}</p>
-      <p> Fecha {{convertirFecha(funcionesMenosVendidas.fecha)}}</p>
+      <p> Fecha {{funcionesMenosVendidas.fecha}}</p>
     </div>
   </div>
 
@@ -116,10 +116,11 @@ import Configuraciones from '../components/Configuraciones.vue'
     },
     methods: {
       
-      convertirFecha(fecha) {
-      return new Date(fecha).toLocaleString();
+     /*  convertirFecha(fecha) {
+        console.log( fecha)
+      return fecha
     },
-
+ */
 
 
       async getTodo() {
@@ -135,6 +136,7 @@ import Configuraciones from '../components/Configuraciones.vue'
       try {
         let { data: funcion } = await this.axios(this.$store.state.getFuncionesMas)
         this.funcionesMasVendidas = funcion;
+        console.log(this.funcionesMasVendidas)
       } catch (error) {
         console.log('error en el getFuncionMas ' + error);
       }
@@ -145,6 +147,7 @@ import Configuraciones from '../components/Configuraciones.vue'
       try {
         let { data: funcion } = await this.axios(this.$store.state.getFuncionesMenos)
         this.funcionesMenosVendidas = funcion;
+        console.log(this.funcionesMenosVendidas)
       } catch (error) {
         console.log('error en el getFuncionMenos ' + error);
       }

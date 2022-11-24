@@ -64,10 +64,10 @@
         <input type="email" id="email" class="form-control" autocomplete="off" v-model.trim="formData.email" name="email"
           required placeholder="Ingrese el Email" />
         <field-messages name="email" show="$dirty">
-          <div slot="required" class="alert alert-danger mt-1">
+          <div slot="required" class="alert alert-danger mt-3 w-25 mx-5">
             Campo requerido
           </div>
-          <div slot="email" class="alert alert-danger mt-1">
+          <div slot="email" class="alert alert-danger mt-3 w-25 mx-5">
             Email no válido
           </div>
         </field-messages>
@@ -79,7 +79,7 @@
         <input type="password" id="password" class="form-control" autocomplete="off" v-model.trim="formData.password"
           name="password" required placeholder="Ingrese la Constraseña" />
         <field-messages name="password" show="$dirty">
-          <div slot="required" class="alert alert-danger mt-1">
+          <div slot="required" class="alert alert-danger mt-3 w-25 mx-5">
             Campo requerido
           </div>
         </field-messages>
