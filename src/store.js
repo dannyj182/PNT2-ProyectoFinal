@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import VuexPersistence from 'vuex-persist'
 
 Vue.use(Vuex)
 
@@ -112,5 +113,10 @@ export default new Vuex.Store({
             const index = state.peliculas.findIndex(p => p._id == pelicula._id)
             state.peliculas.splice(index, 1, pelicula)
         },
-    }
+    },
+    plugins:[
+        new VuexPersistence({
+            storage: window.localStorage
+        }).plugin
+    ]
 })
