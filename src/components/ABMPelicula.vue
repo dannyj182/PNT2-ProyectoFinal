@@ -175,10 +175,10 @@
 </div>
       </th>
       <th>
-        <img class="foto" src="https://static.cinemarkhoyts.com.ar/Images/Highlights/531.png"><br><br><br>
-        <img class="foto" src="https://static.cinemarkhoyts.com.ar/Images/Highlights/536.png"><br><br><br>
-        <img class="foto" src="https://static.cinemarkhoyts.com.ar/Images/Highlights/539.png"><br><br><br>
-        <img class="foto" src="https://static.cinemarkhoyts.com.ar/Images/Highlights/545.png"><br><br><br>
+        <img class="foto" src= '../assets/cine4.png'><br><br><br>
+        <img class="foto" src='../assets/cine5.png'><br><br><br>
+        <img class="foto" src='../assets/cine6.png'><br><br><br>
+        <img class="foto" src='../assets/cine7.png'><br><br><br>
       </th>
     </table>
 
@@ -370,7 +370,7 @@ label{
   box-shadow: 1px 1px 7px rgb(255, 255, 255);
 }
 .foto{
-  padding-left: 80px;
+  margin-left: 80px;
   height: 200px;
   opacity: 0.9;
 }
