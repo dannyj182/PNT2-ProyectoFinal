@@ -37,10 +37,10 @@
       
       
               <field-messages name="nombre" show="$dirty">
-                <div slot="required" class="alert alert-danger mt-1">Campo Nombre requerido</div>
-                <div slot="minlength" class="alert alert-warning mt-1">Este campo debe poseer al menos {{ nombreMinLength }}
+                <div slot="required" class="alert alert-danger mt-3 w-25 mx-5">Campo Nombre requerido</div>
+                <div slot="minlength" class="alert alert-danger mt-3 w-25 mx-5">Este campo debe poseer al menos {{ nombreMinLength }}
                   caracteres.</div>
-                <div slot="no-espacios" class="alert alert-danger mt-1">El campo no permite espacios intermedios.</div>
+                <div slot="no-espacios" class="alert alert-danger mt-3 w-25 mx-5">El campo no permite espacios intermedios.</div>
               </field-messages>
             </validate><br>
       
@@ -52,8 +52,8 @@
                 required placeholder="Ingrese su edad">
               <field-messages name="edad" show="$dirty">
                 <div class="font">Edad Confirmada</div>
-                <div slot="required" class="alert alert-danger mt-1">Campo edad requerido</div>
-                <div slot="no-espacios" class="alert alert-danger mt-1">El campo no permite espacios intermedios.</div>
+                <div slot="required" class="alert alert-danger mt-3 w-25 mx-5">Campo edad requerido</div>
+                <div slot="no-espacios" class="alert alert-danger mt-3 w-25 mx-5">El campo no permite espacios intermedios.</div>
               </field-messages>
       
             </validate><br>
@@ -109,7 +109,7 @@
   },
     props: [],
     mounted () {
-
+       this.getUsuario()
     },
     data () {
       return {
@@ -134,12 +134,27 @@
       mostrar(){
       !this.estaMostrando ? this.mensaje = 'Ocultar' : this.mensaje = 'Editar Perfil'
       this.estaMostrando = !this.estaMostrando
-      this.formData = this.getInitialData();
-      // this.crear = true;
+      //this.formData = this.getInitialData();
+       this.editarForm()
+    },
+
+  editarForm(){
+    this.getUsuario()
+    this.formData = this.user;
+  },
+    async getUsuario() {
+      try {
+        let { data : usuario } = await this.axios(this.$store.state.getUsuario +this.$store.state.idUser)
+        this.$store.dispatch('cargarUsuario', usuario)
+        this.user = usuario;
+        
+      }
+      catch(error) {
+        console.error('Error en getPeliculas', error.message)
+      }
     },
 
       async editar() {
-
         let data = { ...this.formData }
         let newUser = {
           "_id": this.$store.state.idUser,
@@ -152,7 +167,7 @@
         let { data: usuario } = await this.axios.put(this.$store.state.updateUsuario, newUser, { 'content-type': 'application/json' })
         this.usuario = usuario
 
-        if (usuario != null) { alert('Se Edito correctamente', this.$router.push('/peliculas')) }else{
+        if (usuario != null) { alert('Se Editó correctamente', this.getUsuario()), this.estaMostrando = false }else{
           alert('no se pudo editar')
         }
       }
