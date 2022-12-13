@@ -27,6 +27,8 @@ export default new Vuex.Store({
         getPeliculaPorId: 'http://localhost:8080/cineort/peliculas/obtenerpeli',
         updateUsuario: 'http://localhost:8080/cineort/usuarios/editar',
 
+        getUsuario: 'http://localhost:8080/cineort/usuarios/',
+        
         getFuncionesMas: 'http://localhost:8080/cineort/funciones/masVendida',
         getFuncionesMenos: 'http://localhost:8080/cineort/funciones/menosVendida',
         getPeliculaPrecioCara: 'http://localhost:8080/cineort/peliculas/precio/cara',
@@ -53,6 +55,10 @@ export default new Vuex.Store({
        failLogin({commit}){
         commit('failLogin')
        },
+
+       cargarUsuario({commit},usuario){
+        commit('cargarUsuario', usuario)
+    },
        cargarPeliculas({commit}, peliculas){
         commit('cargarPeliculas', peliculas)
        },
@@ -101,6 +107,9 @@ export default new Vuex.Store({
         },
         cargarPeliculas(state, peliculas){
             state.peliculas = peliculas
+        },
+        cargarUsuario(state, usuario){
+            state.usuarioActual = usuario
         },
         agregarPelicula(state, pelicula){
             state.peliculas.push(pelicula)
