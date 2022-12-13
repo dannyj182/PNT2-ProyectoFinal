@@ -18,18 +18,10 @@ export default {
     Footer,
   },
   methods: {
-    async getPeliculas() {
-      try {
-        let { data : peliculas } = await this.axios(this.$store.state.getPelis)
-        this.$store.dispatch('cargarPeliculas', peliculas)
-      }
-      catch(error) {
-        console.error('Error en getPeliculas', error.message)
-      }
-    }
+  
   },
   mounted () {
-    this.getPeliculas()
+
   },
 }
 </script>

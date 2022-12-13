@@ -5,6 +5,7 @@ Vue.filter('pasarAMayusucula', function(value){
     return value.toUpperCase();
 })
 
-Vue.filter('reverse', function(value){
-    return value.split('').reverse().join('');
+Vue.filter('formatearPrecio', function(value){
+    return "$ " + value;
 })
+

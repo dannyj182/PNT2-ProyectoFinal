@@ -191,12 +191,12 @@
           <div id="card" class="media alert alert-black">
             <img :src="pelicula.imagen" class="m-2" :alt="pelicula.nombre" :style="{ 'border-radius' : '10px' }">
             <div class="media-body ml-2">
-              <p>Nombre: <b>{{ pelicula.nombre }}</b></p>
+              <p>Nombre: <b>{{ pelicula.nombre | pasarAMayusucula}}</b></p>
               <p>Género: <i>{{ pelicula.genero }}</i></p>
               <p>Director: {{ pelicula.director }}</p>
               <p>Duración: <i><u>{{ pelicula.duracion }} min</u></i></p>
               <p>Clasificación: {{ pelicula.clasificacion }}</p>
-              <p>Precio: {{ pelicula.precio }}</p>
+              <p>Precio: {{ pelicula.precio | formatearPrecio}}</p>
               <button class="btn btn-success" @click="editarPeli(pelicula._id)">Editar</button>
               <button class="btn btn-danger ml-2" @click="deletePelicula(pelicula._id)">Borrar</button>
             </div>
@@ -275,6 +275,7 @@ export default {
       try {
         let { data : res } = await this.axios.delete(this.$store.state.deletePeli + id)
         if(res.deletedCount) this.$store.dispatch('borrarPelicula', id)
+        alert('Película borrada con éxito')
       }
       catch(error) { console.error('Error en deletePelicula', error.message) } 
     },
@@ -285,7 +286,6 @@ export default {
     },
 
     putPostPelicula(id){
-      console.log(id)
       this.crear ? this.postPelicula() : this.putPelicula(id)
       this.peliId= ""
     },
@@ -301,21 +301,12 @@ export default {
 
     },
     async putPelicula(id) {
-/*       let peliUpdate = {
-        _id: id,
-        nombre: 'ORT Argentina',
-        genero: 'Académico',
-        director: 'Adrián Moscovich',
-        duracion: 0,
-        clasificacion: 'ATP+1000',
-        imagen: 'https://aulavirtual.instituto.ort.edu.ar/pluginfile.php/1/theme_institutort37/logo/1667864868/logo.png',
-        sinopsis: 'Se editó la película exitosamente',
-        precio: 0
-      } */
+
       try {
         let { data : res } = await this.axios.put(this.$store.state.putPeli + id, { ...this.formData }, { 'content-type' : 'application/json' })
         if(res.modifiedCount) this.$store.dispatch('updatePelicula', { ...this.formData })
          this.limpiarForm()
+          alert('Película actualizada con éxito')
       }
       catch(error) { console.error('Error en editarPelicula', error.message) }        
     }
